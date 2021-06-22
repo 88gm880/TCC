@@ -8,7 +8,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <VBox alignment="TOP_CENTER" prefHeight="365.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.LoginController">
    <children>
@@ -17,35 +16,19 @@
             <Image url="@../../images/logo2.png" />
          </image>
       </ImageView>
-      <Label text="Usuário:">
-         <font>
-            <Font size="14.0" />
-         </font>
-         <VBox.margin>
-            <Insets top="5.0" />
-         </VBox.margin>
-      </Label>
       <TextField fx:id="userLoginTxt" alignment="CENTER" prefWidth="150.0" promptText="Usuário">
          <VBox.margin>
-            <Insets left="100.0" right="100.0" top="5.0" />
+            <Insets left="100.0" right="100.0" top="15.0" />
          </VBox.margin>
       </TextField>
-      <Label text="Senha:">
-         <font>
-            <Font size="14.0" />
-         </font>
-         <VBox.margin>
-            <Insets top="5.0" />
-         </VBox.margin>
-      </Label>
       <PasswordField fx:id="userPwdTxt" alignment="CENTER" prefWidth="150.0" promptText="Senha">
          <VBox.margin>
-            <Insets left="100.0" right="100.0" top="5.0" />
+            <Insets bottom="5.0" left="100.0" right="100.0" top="5.0" />
          </VBox.margin>
       </PasswordField>
       <Label fx:id="loginErrorLbl" alignment="CENTER" opacity="0.0" prefHeight="17.0" prefWidth="350.0" textFill="#ff0000">
          <VBox.margin>
-            <Insets top="5.0" />
+            <Insets />
          </VBox.margin>
       </Label>
       <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="25.0" prefWidth="150.0" text="Login">
