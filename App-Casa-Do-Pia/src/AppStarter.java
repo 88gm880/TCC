@@ -10,8 +10,8 @@ public class AppStarter extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("./vision/login2.fxml"));
-        primaryStage.initStyle(StageStyle.DECORATED);
+        Parent root = FXMLLoader.load(getClass().getResource("view/login.fxml"));
+        primaryStage.initStyle(StageStyle.UTILITY);
         primaryStage.getIcons().add(new Image("file:App-Casa-Do-Pia/images/logo1.png"));
         primaryStage.setTitle("Gerenciador Casa do Piá");
         primaryStage.setScene(new Scene(root, 350, 400));

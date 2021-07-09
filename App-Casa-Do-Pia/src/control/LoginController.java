@@ -1,7 +1,6 @@
 package control;
 
-import DAO.DbConnection;
-import DAO.LoginDAO;
+import dao.LoginDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +18,6 @@ import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -75,11 +73,11 @@ public class LoginController implements Initializable {
 
     public void openNew() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../vision/register.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../view/register.fxml"));
             Stage primaryStage = new Stage();
             primaryStage.initStyle(StageStyle.UTILITY);
             primaryStage.setTitle("Gerenciador Casa do Piá");
-            primaryStage.setScene(new Scene(root, 600, 400));
+            primaryStage.setScene(new Scene(root, 870, 570));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
