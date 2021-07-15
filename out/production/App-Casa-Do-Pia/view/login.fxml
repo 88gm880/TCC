@@ -48,12 +48,12 @@
             <Insets top="5.0" />
          </VBox.margin>
       </Label>
-      <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="25.0" prefWidth="150.0" text="Login">
+      <Button fx:id="loginBtn" defaultButton="true" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="25.0" prefWidth="150.0" text="Login">
          <VBox.margin>
             <Insets bottom="10.0" top="5.0" />
          </VBox.margin>
       </Button>
-      <Button fx:id="loginCancelBtn" mnemonicParsing="false" onAction="#loginCancelBtnOnAction" prefHeight="25.0" prefWidth="150.0" text="Cancelar">
+      <Button fx:id="loginCancelBtn" cancelButton="true" mnemonicParsing="false" onAction="#loginCancelBtnOnAction" prefHeight="25.0" prefWidth="150.0" text="Cancelar">
          <VBox.margin>
             <Insets bottom="10.0" top="5.0" />
          </VBox.margin>

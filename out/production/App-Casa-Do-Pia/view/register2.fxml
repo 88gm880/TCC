@@ -86,10 +86,10 @@
                               <Insets left="5.0" />
                            </HBox.margin>
                            <toggleGroup>
-                              <ToggleGroup fx:id="rbSexo" />
+                              <ToggleGroup fx:id="sexoRb" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Feminino" toggleGroup="$rbSexo">
+                        <RadioButton mnemonicParsing="false" text="Feminino" toggleGroup="$sexoRb">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
@@ -290,7 +290,7 @@
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <ChoiceBox prefHeight="25.0" prefWidth="116.0">
+                        <ChoiceBox fx:id="maritalStatus" prefHeight="25.0" prefWidth="116.0">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -347,7 +347,7 @@
             </VBox>
         </content>
       </Tab>
-    <Tab text="Habitação">
+    <Tab text="Habitação e saúde">
       <content>
             <VBox>
                <children>
@@ -421,8 +421,11 @@
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sewerRb" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Não">
+                        <RadioButton mnemonicParsing="false" text="Não" toggleGroup="$sewerRb">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
@@ -451,23 +454,146 @@
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <Spinner prefHeight="25.0" prefWidth="80.0" />
+                        <Spinner fx:id="rooms" editable="true" prefHeight="25.0" prefWidth="80.0" />
                         <Label text="Quantos cômodos são dormitórios:">
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <Spinner prefHeight="25.0" prefWidth="80.0" />
+                        <Spinner fx:id="bedrooms" editable="true" prefHeight="25.0" prefWidth="80.0" />
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Saúde">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Possui problemas de saúde física diagnosticados:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="fisicalHealthRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$fisicalHealthRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Possui problemas de saúde mental diagnosticados:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="mentalHealthRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$mentalHealthRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Faz algum acompanhamento profissional:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="medicalRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$medicalRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Faz uso contínuo de medicamentos:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="remedyRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$remedyRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="75.0" prefWidth="868.0">
+                     <children>
+                        <Button fx:id="nextBtn2" mnemonicParsing="false" onAction="#nextBtnOnAction" text="Próximo">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
                      </children>
                   </HBox>
                </children>
             </VBox>
       </content>
     </Tab>
-      <Tab text="Assistência Social">
+      <Tab text="Assistência social e escolaridade">
          <content>
             <VBox>
                <children>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Assistência social">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
                      <children>
                         <Label text="Número do NIS Familiar:">
@@ -495,8 +621,11 @@
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="bolsaFamiliaRb" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Não">
+                        <RadioButton mnemonicParsing="false" text="Não" toggleGroup="$bolsaFamiliaRb">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
@@ -514,110 +643,27 @@
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="otherAssistancesRb" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Não">
+                        <RadioButton mnemonicParsing="false" text="Não" toggleGroup="$otherAssistancesRb">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
                      </children>
                   </HBox>
-               </children>
-            </VBox>
-         </content>
-      </Tab>
-      <Tab text="Saúde">
-         <content>
-            <VBox>
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                  <Separator prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
                      <children>
-                        <Label text="Possui problemas de saúde física diagnosticados:">
-                           <HBox.margin>
-                              <Insets left="10.0" right="5.0" />
-                           </HBox.margin>
+                        <Label text="Escolaridade">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
                         </Label>
-                        <RadioButton mnemonicParsing="false" text="Não">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Sim:">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </RadioButton>
-                        <TextField prefHeight="25.0" prefWidth="267.0" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
-                     <children>
-                        <Label text="Possui problemas de saúde mental diagnosticados:">
-                           <HBox.margin>
-                              <Insets left="10.0" right="5.0" />
-                           </HBox.margin>
-                        </Label>
-                        <RadioButton mnemonicParsing="false" text="Não">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Sim:">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </RadioButton>
-                        <TextField prefHeight="25.0" prefWidth="267.0" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
-                     <children>
-                        <Label text="Faz algum acompanhamento profissional:">
-                           <HBox.margin>
-                              <Insets left="10.0" right="5.0" />
-                           </HBox.margin>
-                        </Label>
-                        <RadioButton mnemonicParsing="false" text="Não">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Sim:">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </RadioButton>
-                        <TextField prefHeight="25.0" prefWidth="267.0" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
-                     <children>
-                        <Label text="Faz uso contínuo de medicamentos:">
-                           <HBox.margin>
-                              <Insets left="10.0" right="5.0" />
-                           </HBox.margin>
-                        </Label>
-                        <RadioButton mnemonicParsing="false" text="Não">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Sim:">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </RadioButton>
-                        <TextField prefHeight="25.0" prefWidth="267.0" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </content>
-      </Tab>
-      <Tab text="Escolaridade">
-         <content>
-            <VBox>
-               <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
                      <children>
                         <Label text="Escola:">
@@ -635,8 +681,11 @@
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="schoolPeriodRb" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Vespertino">
+                        <RadioButton mnemonicParsing="false" text="Vespertino" toggleGroup="$schoolPeriodRb">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
@@ -664,13 +713,28 @@
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="learningDifficultyRb" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Sim:">
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$learningDifficultyRb">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
                         <TextField prefHeight="25.0" prefWidth="227.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="215.0" prefWidth="868.0">
+                     <children>
+                        <Button fx:id="nextBtn3" mnemonicParsing="false" onAction="#nextBtnOnAction" text="Próximo">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
                      </children>
                   </HBox>
                </children>

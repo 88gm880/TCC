@@ -73,12 +73,10 @@ public class LoginController implements Initializable {
 
     public void openNew() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/register.fxml"));
-            Stage primaryStage = new Stage();
-            primaryStage.initStyle(StageStyle.UTILITY);
-            primaryStage.setTitle("Gerenciador Casa do Piá");
-            primaryStage.setScene(new Scene(root, 870, 570));
-            primaryStage.show();
+            Parent root = FXMLLoader.load(getClass().getResource("../view/register2.fxml"));
+            Stage stage = (Stage) loginBtn.getScene().getWindow();
+            stage.setResizable(true);
+            stage.setScene(new Scene(root, 870, 570));
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();

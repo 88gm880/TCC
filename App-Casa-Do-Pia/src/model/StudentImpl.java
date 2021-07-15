@@ -4,6 +4,10 @@ import java.time.LocalDate;
 
 public class StudentImpl extends Student {
 
+    public StudentImpl(){
+
+    }
+
     public StudentImpl(String name,
                        LocalDate birthday,
                        int age,

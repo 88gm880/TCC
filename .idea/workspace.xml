@@ -2,25 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f34de0f-d2ac-4da7-b3fa-88075609137a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/App-Casa-Do-Pia1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/dao/StudentDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/model/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/model/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/model/StudentImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/view/register2.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/App-Casa-Do-Pia/view/register2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/AppStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/AppStarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/DAO/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/dao/DbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/DAO/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/dao/LoginDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/control/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/control/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/control/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/control/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/vision/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/view/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/vision/login2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/view/login2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/vision/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/view/register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App-Casa-Do-Pia/vision/login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App-Casa-Do-Pia/vision/login2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App-Casa-Do-Pia/vision/register.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/dao/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/model/StudentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/model/StudentImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/view/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/view/login2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/view/login2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App-Casa-Do-Pia/src/view/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/App-Casa-Do-Pia/src/view/register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App-Casa-Do-Pia/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App-Casa-Do-Pia/view/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App-Casa-Do-Pia/view/login2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App-Casa-Do-Pia/view/login2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/App-Casa-Do-Pia/view/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App-Casa-Do-Pia/view/register.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,11 +114,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/App-Casa-Do-Pia/src/dao/StudentDAO.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="1" />
+          <line>54</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/App-Casa-Do-Pia/src/dao/StudentDAO.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="rs" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
