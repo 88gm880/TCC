@@ -18,8 +18,6 @@ public class AppStarter extends Application {
         primaryStage.setScene(new Scene(root, 350, 400));
         primaryStage.setResizable(false);
         primaryStage.show();
-        StudentDAO studentDAO = new StudentDAO();
-        studentDAO.getAllStudents();
     }
 
 

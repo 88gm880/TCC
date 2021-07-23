@@ -13,6 +13,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -73,7 +75,8 @@ public class LoginController implements Initializable {
 
     public void openNew() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/register2.fxml"));
+            VBox root = FXMLLoader.load(getClass().getResource("../view/teste.fxml"));
+            root.getChildren().add(FXMLLoader.load(getClass().getResource("../view/register2.fxml")));
             Stage stage = (Stage) loginBtn.getScene().getWindow();
             stage.setResizable(true);
             stage.setScene(new Scene(root, 870, 570));

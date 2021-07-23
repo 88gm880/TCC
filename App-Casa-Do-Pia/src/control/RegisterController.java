@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import model.Address;
 import model.StudentImpl;
 
 import java.net.URL;
@@ -50,11 +51,21 @@ public class RegisterController implements Initializable {
     @FXML
     private Button nextBtn3;
     @FXML
-    private Spinner rooms;
+    private Spinner<Integer> rooms;
     @FXML
-    private Spinner bedrooms;
+    private Spinner<Integer> bedrooms;
     @FXML
-    private ChoiceBox maritalStatus;
+    private TextField legalGuardian;
+    @FXML
+    private TextField lgRelation;
+    @FXML
+    private TextField lgCpf;
+    @FXML
+    private TextField lgAge;
+    @FXML
+    private ChoiceBox<String> lgMaritalStatus;
+
+
 
     private StudentDAO studentDAO = new StudentDAO();
 
@@ -62,10 +73,10 @@ public class RegisterController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         rooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
         bedrooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
-        maritalStatus.getItems().addAll("Solteiro", "Casado", "União estável", "Viúvo");
+        lgMaritalStatus.getItems().addAll("Solteiro", "Casado", "União estável", "Viúvo");
     }
 
-    public void birthdayOnAction(ActionEvent event) {
+    public void birthdayOnAction(ActionEvent event) throws RuntimeException {
         if (birthday.getValue().isAfter(LocalDate.now())) {
             throw new RuntimeException("Data de nascimento não pode ser maior que hoje");
         }
@@ -86,9 +97,20 @@ public class RegisterController implements Initializable {
     }
 
     public void registerBtnOnAction(ActionEvent event) {
-        //studentDAO.registerStudent(new StudentImpl(name.getText(), birthday.getValue(), age, naturality.getText(),
-        //        fatherName.getText(), motherName.getText(), phone.getText(), messagePhone.getText()));
+        Address address = new Address();
+        address.setStreet(addressStreet.getText());
+        address.setNumber(addressNumber.getText());
+        address.setDistrict(addressDistrict.getText());
+        address.setComplement(addressComplement.getText());
 
+        studentDAO.registerStudent(new StudentImpl(name.getText(), birthday.getValue(), age, naturality.getText(),
+                fatherName.getText(), motherName.getText(), phone.getText(), messagePhone.getText()));
+    }
+
+    public void checkOnAction(ActionEvent event) {
+        System.out.println("\t\t\tEstudantes: \n");
+        studentDAO.getAllStudents();
+        System.out.println();
     }
 
 

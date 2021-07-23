@@ -17,7 +17,7 @@ public class DbConnection {
             connection = DriverManager.getConnection(url, dbUser, dbPwd);
         }catch (Exception e){
             e.printStackTrace();
-            e.getCause();git st
+            e.getCause();
         }
     }
 
