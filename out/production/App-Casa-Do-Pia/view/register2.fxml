@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="868.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.RegisterController">
+  <tabs>
+    <Tab text="Identificação do Atendido">
+      <content>
+            <VBox>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Nome: ">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="name" prefHeight="25.0" prefWidth="264.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Data de nascimento: ">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <DatePicker fx:id="birthday" onAction="#birthdayOnAction" prefHeight="25.0" prefWidth="107.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </DatePicker>
+                        <Label text="Idade:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="ageTxt" disable="true" prefHeight="25.0" prefWidth="35.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Naturalidade:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="naturality">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="Sexo:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Masculino">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sexoRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Feminino" toggleGroup="$sexoRb">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Nome do Pai:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="fatherName" prefHeight="25.0" prefWidth="170.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                        <CheckBox mnemonicParsing="false" text="Padrasto">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="Falecido">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Nome da Mãe:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="motherName" prefHeight="25.0" prefWidth="170.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                        <CheckBox mnemonicParsing="false" text="Madrasta">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="Falecida">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <Separator prefHeight="15.0" prefWidth="819.0" />
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label alignment="CENTER" text="Endereço" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="34.0" text="Rua:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="addressStreet" prefHeight="25.0" prefWidth="315.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="N°:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="addressNumber" prefHeight="25.0" prefWidth="50.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="67.0" text="Bairro/Vila:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="addressDistrict" prefHeight="25.0" prefWidth="283.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="Ponto de Referência:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="addressComplement" prefHeight="25.0" prefWidth="238.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="54.0" text="Telefone:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="phone" prefHeight="25.0" prefWidth="110.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Telefone/recados:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="messagePhone" prefHeight="25.0" prefWidth="110.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="Falar com:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="25.0" prefWidth="231.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="123.0" prefWidth="868.0">
+                     <children>
+                        <Button fx:id="registerBtn" mnemonicParsing="false" onAction="#registerBtnOnAction" text="Registrar">
+                           <HBox.margin>
+                              <Insets bottom="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#checkOnAction" text="Consulta">
+                           <HBox.margin>
+                              <Insets bottom="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="nextBtn0" mnemonicParsing="false" onAction="#nextBtnOnAction" text="Próximo">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+      </content>
+    </Tab>
+      <Tab text="Aspectos Familiares ">
+        <content>
+            <VBox>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Nome do Resposável Legal:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="25.0" prefWidth="210.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="Relação com o Atendido:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="25.0" prefWidth="224.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="CPF:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="25.0" prefWidth="120.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="Idade:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="25.0" prefWidth="35.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="Estado Civil:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="maritalStatus" prefHeight="25.0" prefWidth="116.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Com Quem Mora" textAlignment="JUSTIFY">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label alignment="CENTER" text="Grau de parentesco partindo da visão do atendido" textAlignment="JUSTIFY">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="279.0" prefWidth="868.0">
+                     <children>
+                        <TableView prefHeight="179.0" prefWidth="819.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Nome" />
+                            <TableColumn prefWidth="51.0" text="Idade" />
+                              <TableColumn prefWidth="129.0" text="Grau de Parentesco" />
+                              <TableColumn prefWidth="255.0" text="Possui irmãos que frequentam a entidade?" />
+                              <TableColumn prefWidth="97.0" text="Escolaridade" />
+                              <TableColumn prefWidth="115.0" text="Profissão" />
+                              <TableColumn prefWidth="96.0" text="Renda Mensal" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="96.0" prefWidth="868.0">
+                     <children>
+                        <Button fx:id="nextBtn1" mnemonicParsing="false" onAction="#nextBtnOnAction" text="Próximo">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+        </content>
+      </Tab>
+    <Tab text="Habitação e saúde">
+      <content>
+            <VBox>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Habitação">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Domicílio:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ChoiceBox prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                        <TextField />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="60.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Possui:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <VBox alignment="CENTER_LEFT">
+                           <children>
+                              <CheckBox mnemonicParsing="false" text="Água encanada particular">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" text="Água encanada medidor coletivo" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT">
+                           <children>
+                              <CheckBox mnemonicParsing="false" text="Luz elétrica particular">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" text="Luz elétrica medidor coletivo" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Possui rede de esgoto:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sewerRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim" toggleGroup="$sewerRb">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Edificação:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ChoiceBox prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                        <TextField />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="118.0" text="Número de cômodos:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Spinner fx:id="rooms" editable="true" prefHeight="25.0" prefWidth="80.0" />
+                        <Label text="Quantos cômodos são dormitórios:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Spinner fx:id="bedrooms" editable="true" prefHeight="25.0" prefWidth="80.0" />
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Saúde">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Possui problemas de saúde física diagnosticados:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="fisicalHealthRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$fisicalHealthRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Possui problemas de saúde mental diagnosticados:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="mentalHealthRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$mentalHealthRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Faz algum acompanhamento profissional:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="medicalRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$medicalRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Faz uso contínuo de medicamentos:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="remedyRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$remedyRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="75.0" prefWidth="868.0">
+                     <children>
+                        <Button fx:id="nextBtn2" mnemonicParsing="false" onAction="#nextBtnOnAction" text="Próximo">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+      </content>
+    </Tab>
+      <Tab text="Assistência social e escolaridade">
+         <content>
+            <VBox>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Assistência social">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Número do NIS Familiar:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="25.0" prefWidth="142.0" />
+                        <Label text="CRAS de Refencia:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="25.0" prefWidth="176.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Recebe Bolsa Família:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="bolsaFamiliaRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$bolsaFamiliaRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <TextField />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="417.0" text="A família fequenta ou recebe auxilio de outro orgão da rede socioassistêncial:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="otherAssistancesRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim" toggleGroup="$otherAssistancesRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Escolaridade">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Escola:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                        <Label text="Turno:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Matutino">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="schoolPeriodRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Vespertino" toggleGroup="$schoolPeriodRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Série:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ChoiceBox prefHeight="25.0" prefWidth="160.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Tem dificuldade de aprendizagem:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Não">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="learningDifficultyRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$learningDifficultyRb">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <TextField prefHeight="25.0" prefWidth="227.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
+                     <children>
+                        <Label text="Observações:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField />
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="175.0" prefWidth="868.0">
+                     <children>
+                        <Button fx:id="nextBtn3" mnemonicParsing="false" onAction="#nextBtnOnAction" text="Próximo">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </Tab>
+      <Tab text="Ingresso na Casa do Piá">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Data de Início:" />
+                  <DatePicker layoutX="94.0" layoutY="10.0" prefHeight="25.0" prefWidth="119.0" />
+                  <Label layoutX="230.0" layoutY="14.0" text="Data de Desligamento:" />
+                  <DatePicker layoutX="359.0" layoutY="10.0" prefHeight="25.0" prefWidth="119.0" />
+                  <Label layoutX="14.0" layoutY="54.0" text="Compareceu a Instituição por Encaminhamento:" />
+                  <ChoiceBox layoutX="276.0" layoutY="50.0" prefWidth="150.0" />
+                  <Label layoutX="14.0" layoutY="86.0" text="Turno que vai frequentar a Casa do Piá:" />
+                  <RadioButton layoutX="225.0" layoutY="86.0" mnemonicParsing="false" text="Matutino" />
+                  <RadioButton layoutX="304.0" layoutY="86.0" mnemonicParsing="false" text="Vespertino" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Termo de Compromisso">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="8.0" layoutY="14.0" text="Eu" />
+                  <TextField layoutX="23.0" layoutY="10.0" prefHeight="25.0" prefWidth="374.0" />
+                  <Label layoutX="405.0" layoutY="14.0" text="Comprometo-me a acompanhar " />
+                  <TextField layoutX="24.0" layoutY="44.0" prefHeight="25.0" prefWidth="373.0" />
+                  <Label layoutX="405.0" layoutY="48.0" text="Durante o período em que o mesmo estiver inscrito na" />
+                  <Label layoutX="3.0" layoutY="81.0" prefHeight="17.0" prefWidth="680.0" text="Casa do Piá, respeitando as normas do regimento interno, participando das reuniões, mantendo contato direto e imediato com" />
+                  <Label layoutX="-6.0" layoutY="98.0" />
+                  <Label layoutY="98.0" prefHeight="17.0" prefWidth="686.0" text="a coordenação e serviço social para comunicar qualquer fato que interfira diretamamente no atendimento da criança/adolescente" />
+                  <Label layoutY="115.0" text="inclusive comunicar desistência, ou quando for solicitado minha presença na entidade." />
+                  <Label layoutX="7.0" layoutY="161.0" text="Ponta Grossa" />
+                  <DatePicker layoutX="81.0" layoutY="157.0" prefHeight="25.0" prefWidth="125.0" />
+                  <Label layoutX="9.0" layoutY="198.0" text="Assinatura do Responsável:" />
+                  <TextField layoutX="161.0" layoutY="194.0" prefHeight="42.0" prefWidth="243.0" />
+                  <Label layoutX="311.0" layoutY="285.0" text="Carimbo e assinatura do Assistente Social responsável pela inscrição:" />
+                  <TextField layoutX="332.0" layoutY="323.0" prefHeight="119.0" prefWidth="308.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
