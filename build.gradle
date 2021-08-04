@@ -1,6 +1,9 @@
 plugins {
-  id 'application'
-  id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.springframework.boot' version '2.5.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
 }
 
 repositories {
@@ -8,7 +11,13 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.25'
+    //implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.25'
+    //implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'mysql:mysql-connector-java'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.hibernate:hibernate-core:5.5.5.Final'
 }
 
 javafx {

@@ -1,7 +1,6 @@
 package org.openjfx.model.dao;
 
 import org.openjfx.model.Student;
-import org.openjfx.model.StudentImpl;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -43,7 +42,7 @@ public class StudentDAO {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()){
-                Student s = new StudentImpl();
+                Student s = new Student();
                 s.setName(rs.getString("ST_NAME"));
                 s.setBirthday(rs.getDate("BIRTHDAY").toLocalDate());
                 s.setAge(rs.getInt("AGE"));

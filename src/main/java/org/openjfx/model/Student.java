@@ -1,98 +1,40 @@
 package org.openjfx.model;
 
+import lombok.*;
+
 import java.time.LocalDate;
 
-public abstract class Student {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Student {
 
+    @Getter @Setter
     private String name;
 
+    @Getter @Setter
     private LocalDate birthday;
 
+    @Getter @Setter
     private int age;
 
+    @Getter @Setter
     private String naturality;
 
+    @Getter @Setter
     private String fatherName;
 
+    @Getter @Setter
     private String motherName;
 
+    @Getter @Setter
     private Address address;
 
+    @Getter @Setter
     private String phone;
 
+    @Getter @Setter
     private String messagePhone;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getNaturality() {
-        return naturality;
-    }
-
-    public void setNaturality(String naturality) {
-        this.naturality = naturality;
-    }
-
-    public String getFatherName() {
-        return fatherName;
-    }
-
-    public void setFatherName(String fatherName) {
-        this.fatherName = fatherName;
-    }
-
-    public String getMotherName() {
-        return motherName;
-    }
-
-    public void setMotherName(String motherName) {
-        this.motherName = motherName;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getMessagePhone() {
-        return messagePhone;
-    }
-
-    public void setMessagePhone(String messagePhone) {
-        this.messagePhone = messagePhone;
-    }
 
     public String toSqlString() {
         return "'" + name + "', " +

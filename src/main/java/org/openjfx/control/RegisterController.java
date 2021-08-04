@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import org.openjfx.model.Address;
-import org.openjfx.model.StudentImpl;
+import org.openjfx.model.Student;
 import org.openjfx.model.dao.StudentDAO;
 
 import java.net.URL;
@@ -66,7 +66,6 @@ public class RegisterController implements Initializable {
     private ChoiceBox<String> lgMaritalStatus;
 
 
-
     private StudentDAO studentDAO = new StudentDAO();
 
     @Override
@@ -97,14 +96,35 @@ public class RegisterController implements Initializable {
     }
 
     public void registerBtnOnAction(ActionEvent event) {
-        Address address = new Address();
+
+        /* Código antigo:
         address.setStreet(addressStreet.getText());
         address.setNumber(addressNumber.getText());
         address.setDistrict(addressDistrict.getText());
         address.setComplement(addressComplement.getText());
+        new Student(name.getText(), birthday.getValue(), age, naturality.getText(),
+                fatherName.getText(), motherName.getText(), address, phone.getText(), messagePhone.getText()
+        */
+        Address address = Address.builder()
+                .street(addressStreet.getText())
+                .number(addressNumber.getText())
+                .district(addressDistrict.getText())
+                .complement(addressComplement.getText())
+                .build();
 
-        studentDAO.registerStudent(new StudentImpl(name.getText(), birthday.getValue(), age, naturality.getText(),
-                fatherName.getText(), motherName.getText(), phone.getText(), messagePhone.getText()));
+        //Cria um aluno com os atributos setados
+        Student student = Student.builder()
+                .name(name.getText())
+                .naturality(naturality.getText())
+                .birthday(birthday.getValue())
+                .age(age)
+                .fatherName(fatherName.getText())
+                .motherName(motherName.getText())
+                .address(address)
+                .phone(phone.getText())
+                .messagePhone(messagePhone.getText())
+                .build();
+        studentDAO.registerStudent(student);
     }
 
     public void checkOnAction(ActionEvent event) {
