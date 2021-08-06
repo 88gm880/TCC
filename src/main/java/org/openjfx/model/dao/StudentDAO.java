@@ -1,12 +1,13 @@
 package org.openjfx.model.dao;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.openjfx.model.Student;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
 public class StudentDAO {
 
@@ -32,8 +33,8 @@ public class StudentDAO {
         }
     }
 
-    public List<Student> getAllStudents(){
-        ArrayList <Student> studantes = new ArrayList<>();
+    public ObservableList<Student> getAllStudents(){
+        ObservableList <Student> studantes = FXCollections.observableArrayList();
 
         String query = "SELECT BIRTHDAY, AGE, NATURALITY, FATHER_NAME, MOTHER_NAME, PHONE, MESSAGE_PHONE, ST_NAME " +
                 "FROM STUDENT;";
@@ -42,17 +43,16 @@ public class StudentDAO {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()){
-                Student s = new Student();
-                s.setName(rs.getString("ST_NAME"));
-                s.setBirthday(rs.getDate("BIRTHDAY").toLocalDate());
-                s.setAge(rs.getInt("AGE"));
-                s.setNaturality(rs.getString("NATURALITY"));
-                s.setFatherName(rs.getString("FATHER_NAME"));
-                s.setMotherName(rs.getString("MOTHER_NAME"));
-                s.setPhone(rs.getString("PHONE"));
-                s.setMessagePhone(rs.getString("MESSAGE_PHONE"));
+                Student s = Student.builder().name(rs.getString("ST_NAME"))
+                .birthday(rs.getDate("BIRTHDAY").toLocalDate())
+                .age(rs.getInt("AGE"))
+                .naturality(rs.getString("NATURALITY"))
+                .fatherName(rs.getString("FATHER_NAME"))
+                .motherName(rs.getString("MOTHER_NAME"))
+                .phone(rs.getString("PHONE"))
+                .messagePhone(rs.getString("MESSAGE_PHONE"))
+                .build();
                 studantes.add(s);
-                System.out.println(s.toSqlString());
             }
         } catch (Exception e) {
             e.printStackTrace();

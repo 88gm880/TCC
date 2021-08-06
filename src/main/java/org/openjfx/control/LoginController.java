@@ -55,6 +55,8 @@ public class LoginController implements Initializable {
     }
 
     public void validateLogin() {
+        userLoginTxt.setText(userLoginTxt.getText().trim());
+        userPwdTxt.setText(userPwdTxt.getText().trim());
         String username = userLoginTxt.getText();
         String password = userPwdTxt.getText();
 

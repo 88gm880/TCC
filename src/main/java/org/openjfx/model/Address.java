@@ -1,12 +1,9 @@
 package org.openjfx.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Builder
-@NoArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 public class Address {
 
     @Getter @Setter

@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.control.ListController">
    <children>
-      <Label text="Aqui vai a lista de estudantes" />
+      <HBox alignment="CENTER" prefHeight="257.0" prefWidth="870.0">
+         <children>
+            <TableView fx:id="studentTableView" prefHeight="257.0" prefWidth="471.0">
+              <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="138.0" text="Nome" />
+                <TableColumn fx:id="ageColumn" prefWidth="66.0" text="Idade" />
+                  <TableColumn fx:id="fatherNameColumn" prefWidth="141.0" text="Nome do pai" />
+                  <TableColumn fx:id="motherNameColumn" prefWidth="125.0" text="Nome da mãe" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
    </children>
 </VBox>

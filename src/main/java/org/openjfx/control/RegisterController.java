@@ -4,8 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import org.openjfx.model.Address;
-import org.openjfx.model.Student;
+import org.openjfx.model.*;
 import org.openjfx.model.dao.StudentDAO;
 
 import java.net.URL;
@@ -26,6 +25,14 @@ public class RegisterController implements Initializable {
     private TextField naturality;
     @FXML
     private TextField fatherName;
+    @FXML
+    private CheckBox godfather;
+    @FXML
+    private CheckBox deadFather;
+    @FXML
+    private CheckBox godmother;
+    @FXML
+    private CheckBox deadMother;
     @FXML
     private TextField motherName;
     @FXML
@@ -50,6 +57,12 @@ public class RegisterController implements Initializable {
     private Button nextBtn2;
     @FXML
     private Button nextBtn3;
+    @FXML
+    private Button prevBtn1;
+    @FXML
+    private Button prevBtn2;
+    @FXML
+    private Button prevBtn3;
     @FXML
     private Spinner<Integer> rooms;
     @FXML
@@ -95,6 +108,16 @@ public class RegisterController implements Initializable {
 
     }
 
+    public void prevBtnOnAction(ActionEvent event) {
+        if (event.getSource().equals(prevBtn1))
+            tabPane.getSelectionModel().select(0);
+        if (event.getSource().equals(prevBtn2))
+            tabPane.getSelectionModel().select(1);
+        if (event.getSource().equals(prevBtn3))
+            tabPane.getSelectionModel().select(2);
+
+    }
+
     public void registerBtnOnAction(ActionEvent event) {
 
         /* Código antigo:
@@ -112,26 +135,35 @@ public class RegisterController implements Initializable {
                 .complement(addressComplement.getText())
                 .build();
 
+        Habitation habitation = Habitation.builder()
+                .build();
+
+        Health health = Health.builder()
+                .build();
+
+        SocialAssistance socialAssistance = SocialAssistance.builder()
+                .build();
+
         //Cria um aluno com os atributos setados
         Student student = Student.builder()
                 .name(name.getText())
-                .naturality(naturality.getText())
                 .birthday(birthday.getValue())
                 .age(age)
+                .naturality(naturality.getText())
                 .fatherName(fatherName.getText())
+                .godfather(godfather.isSelected())
+                .deadFather(deadFather.isSelected())
                 .motherName(motherName.getText())
-                .address(address)
+                .godmother(godmother.isSelected())
+                .deadMother(deadMother.isSelected())
                 .phone(phone.getText())
                 .messagePhone(messagePhone.getText())
+                .address(address)
+                .habitation(habitation)
+                .health(health)
+                .socialAssistance(socialAssistance)
                 .build();
+
         studentDAO.registerStudent(student);
     }
-
-    public void checkOnAction(ActionEvent event) {
-        System.out.println("\t\t\tEstudantes: \n");
-        studentDAO.getAllStudents();
-        System.out.println();
-    }
-
-
 }
