@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.openjfx.model.dao.LoginDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
 import java.net.URL;
@@ -34,8 +35,8 @@ public class LoginController implements Initializable {
     @FXML
     private Button loginCancelBtn;
 
-    static VBox root;
-    private LoginDAO loginDAO = new LoginDAO();
+    @Autowired
+    private final LoginDAO loginDAO = new LoginDAO();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
