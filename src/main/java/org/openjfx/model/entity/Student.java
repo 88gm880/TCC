@@ -9,7 +9,7 @@ import org.openjfx.model.Address;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "STUDENT")
 @Getter
 @Setter
 @NoArgsConstructor
