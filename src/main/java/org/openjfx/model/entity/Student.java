@@ -10,8 +10,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity(name = "STUDENT")
-@Getter
-@Setter
+@Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
@@ -19,7 +18,7 @@ public class Student {
     @Id
     @Column(name = "ST_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name = "ST_NAME")
     private String name;
@@ -34,7 +33,7 @@ public class Student {
 
     private String motherName;
 
-    private Address address;
+    //private Address address;
 
     private String phone;
 

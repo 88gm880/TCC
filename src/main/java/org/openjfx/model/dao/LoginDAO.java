@@ -1,9 +1,12 @@
 package org.openjfx.model.dao;
 
+import org.springframework.stereotype.Component;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+@Component
 public class LoginDAO {
 
     private DbConnection dbConnection = new DbConnection();

@@ -13,13 +13,17 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxmlView;
 import org.openjfx.model.dao.LoginDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Component
+@FxmlView("../view/login.fxml")
 public class LoginController implements Initializable {
 
     @FXML
@@ -36,7 +40,7 @@ public class LoginController implements Initializable {
     private Button loginCancelBtn;
 
     @Autowired
-    private final LoginDAO loginDAO = new LoginDAO();
+    private LoginDAO loginDAO;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
