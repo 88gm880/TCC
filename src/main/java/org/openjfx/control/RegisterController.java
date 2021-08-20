@@ -4,14 +4,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import org.openjfx.model.*;
-import org.openjfx.model.dao.StudentDAO;
+import net.rgielen.fxweaver.core.FxmlView;
+import org.openjfx.control.repositories.AddressRepository;
+import org.openjfx.control.repositories.StudentRepository;
+import org.openjfx.model.entity.Address;
+import org.openjfx.model.entity.Student;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ResourceBundle;
 
+@Component
+@FxmlView("../view/register.fxml")
 public class RegisterController implements Initializable {
 
     @FXML
@@ -79,7 +86,11 @@ public class RegisterController implements Initializable {
     private ChoiceBox<String> lgMaritalStatus;
 
 
-    private StudentDAO studentDAO = new StudentDAO();
+    //private StudentDAO studentDAO = new StudentDAO();
+    @Autowired
+    private StudentRepository studentRepository;
+    @Autowired
+    private AddressRepository addressRepository;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -135,14 +146,14 @@ public class RegisterController implements Initializable {
                 .complement(addressComplement.getText())
                 .build();
 
-        Habitation habitation = Habitation.builder()
+        /*Habitation habitation = Habitation.builder()
                 .build();
 
         Health health = Health.builder()
                 .build();
 
         SocialAssistance socialAssistance = SocialAssistance.builder()
-                .build();
+                .build();*/
 
         //Cria um aluno com os atributos setados
         Student student = Student.builder()
@@ -151,19 +162,21 @@ public class RegisterController implements Initializable {
                 .age(age)
                 .naturality(naturality.getText())
                 .fatherName(fatherName.getText())
-                .godfather(godfather.isSelected())
-                .deadFather(deadFather.isSelected())
+                //.godfather(godfather.isSelected())
+                //.deadFather(deadFather.isSelected())
                 .motherName(motherName.getText())
-                .godmother(godmother.isSelected())
-                .deadMother(deadMother.isSelected())
+                //.godmother(godmother.isSelected())
+                //.deadMother(deadMother.isSelected())
                 .phone(phone.getText())
                 .messagePhone(messagePhone.getText())
                 .address(address)
-                .habitation(habitation)
-                .health(health)
-                .socialAssistance(socialAssistance)
+                //.habitation(habitation)
+                //.health(health)
+                //.socialAssistance(socialAssistance)
                 .build();
 
-        studentDAO.registerStudent(student);
+        studentRepository.save(student);
+        addressRepository.save(address);
+        //studentDAO.registerStudent(student);
     }
 }

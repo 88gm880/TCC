@@ -1,22 +1,27 @@
-package org.openjfx.control;
+package org.openjfx.control.enums;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import org.openjfx.JavaFxApplication;
+import org.openjfx.control.ListController;
+import org.openjfx.control.LoginController;
+import org.openjfx.control.RegisterController;
 
 public enum ScreensEnum {
 
-    welcome(0, "../view/welcome.fxml"),  //
-    register(1, "../view/register2.fxml"),  //
-    list(2, "../view/list.fxml"),           //
+    login(0, LoginController.class), //
+    //welcome(1, ),  //
+    register(2, RegisterController.class),  //
+    list(3, ListController.class),          //
     ;
 
-    private ScreensEnum(int id, String path) {
+    private ScreensEnum(int id, Class controller) {
         this.id = id;
         Node aux;
         try {
-            aux = FXMLLoader.load(getClass().getResource(path));
+            aux = JavaFxApplication.fxWeaver.loadView(controller);
         } catch (Exception e) {
-            System.out.println("Problema ao carregar a tela " + path);
+            System.out.println("Problema ao carregar a tela " + controller.getName());
             aux = null;
         }
         this.node = aux;

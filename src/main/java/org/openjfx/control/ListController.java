@@ -5,13 +5,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import net.rgielen.fxweaver.core.FxmlView;
 import org.openjfx.model.Student;
 import org.openjfx.model.dao.StudentDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Component
+@FxmlView("../view/list.fxml")
 public class ListController implements Initializable {
 
     @FXML

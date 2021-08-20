@@ -21,7 +21,7 @@ public class StudentDAO {
         this.connection = dbConnection.getConnection();
     }
 
-    public void registerStudent(Student student){
+    /*public void registerStudent(Student student){
         String query = "INSERT INTO STUDENT " +
                 "(ST_NAME, BIRTHDAY, AGE, NATURALITY, FATHER_NAME, MOTHER_NAME, PHONE, MESSAGE_PHONE)" +
                 "VALUES" +
@@ -34,7 +34,7 @@ public class StudentDAO {
             e.printStackTrace();
             e.getCause();
         }
-    }
+    }*/
 
     public ObservableList<Student> getAllStudents(){
         ObservableList <Student> studantes = FXCollections.observableArrayList();
