@@ -14,7 +14,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
-import org.openjfx.model.dao.LoginDAO;
+import org.openjfx.control.repositories.LoginRepository;
+import org.openjfx.model.entity.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -40,7 +41,7 @@ public class LoginController implements Initializable {
     private Button loginCancelBtn;
 
     @Autowired
-    private LoginDAO loginDAO;
+    private LoginRepository loginRepository;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,6 +49,10 @@ public class LoginController implements Initializable {
         Image logo2Image = new Image(logo2File.toURI().toString());
 
         loginLogoImg.setImage(logo2Image);
+        /*Login login = new Login();
+        login.setLoginUser("gmacias");
+        login.setLoginPassword("admin");
+        loginRepository.save(login);*/
     }
 
     public void loginBtnOnAction(ActionEvent event) {
@@ -68,7 +73,7 @@ public class LoginController implements Initializable {
         if (username.isBlank() || password.isBlank()) {
             loginErrorLbl.setText("O usuário e a senha devem ser preenchidos");
             loginErrorLbl.setOpacity(1.0);
-        } else if (loginDAO.isValidLogin(username, password)) {
+        } else if (loginRepository.isValidLogin(username, password)) {
             System.out.println("Logou");
             openNew();
             loginErrorLbl.setOpacity(0.0);

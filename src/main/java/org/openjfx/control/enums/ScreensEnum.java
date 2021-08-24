@@ -6,11 +6,12 @@ import org.openjfx.JavaFxApplication;
 import org.openjfx.control.ListController;
 import org.openjfx.control.LoginController;
 import org.openjfx.control.RegisterController;
+import org.openjfx.control.WelcomeController;
 
 public enum ScreensEnum {
 
     login(0, LoginController.class), //
-    //welcome(1, ),  //
+    welcome(1, WelcomeController.class),  //
     register(2, RegisterController.class),  //
     list(3, ListController.class),          //
     ;

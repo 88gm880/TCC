@@ -30,7 +30,7 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //root.getChildren().add(ScreensEnum.welcome.node);
+        root.getChildren().add(ScreensEnum.welcome.node);
     }
 
     public void menuCadastrarOnAction(ActionEvent event) {

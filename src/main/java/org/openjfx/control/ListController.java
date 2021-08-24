@@ -7,7 +7,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.openjfx.model.Student;
-import org.openjfx.model.dao.StudentDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -34,7 +33,7 @@ public class ListController implements Initializable {
     private TableColumn<Student, String> motherNameColumn;
 
 
-    private StudentDAO studentDAO = new StudentDAO();
+    //private StudentDAO studentDAO = new StudentDAO();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,6 +42,6 @@ public class ListController implements Initializable {
         fatherNameColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("fatherName"));
         motherNameColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("motherName"));
 
-        studentTableView.setItems(studentDAO.getAllStudents());
+        //studentTableView.setItems(studentDAO.getAllStudents());
     }
 }

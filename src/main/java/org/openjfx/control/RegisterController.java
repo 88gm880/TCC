@@ -169,12 +169,13 @@ public class RegisterController implements Initializable {
                 //.deadMother(deadMother.isSelected())
                 .phone(phone.getText())
                 .messagePhone(messagePhone.getText())
-                .address(address)
+                //.address(address)
                 //.habitation(habitation)
                 //.health(health)
                 //.socialAssistance(socialAssistance)
                 .build();
 
+        address.setStudent(student);
         studentRepository.save(student);
         addressRepository.save(address);
         //studentDAO.registerStudent(student);
