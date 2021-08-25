@@ -1,6 +1,9 @@
 package org.openjfx.model;
 
 import lombok.*;
+import org.openjfx.model.entity.Habitation;
+import org.openjfx.model.entity.Health;
+import org.openjfx.model.entity.SocialAssistance;
 
 import java.time.LocalDate;
 

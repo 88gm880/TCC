@@ -49,10 +49,10 @@ public class LoginController implements Initializable {
         Image logo2Image = new Image(logo2File.toURI().toString());
 
         loginLogoImg.setImage(logo2Image);
-        /*Login login = new Login();
+        Login login = new Login();
         login.setLoginUser("gmacias");
         login.setLoginPassword("admin");
-        loginRepository.save(login);*/
+        loginRepository.save(login);
     }
 
     public void loginBtnOnAction(ActionEvent event) {

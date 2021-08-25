@@ -3,20 +3,24 @@ package org.openjfx.model.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
+@Builder
+@Getter @Setter
 @Table(name = "STUDENT")
-@Builder @Getter
 @NoArgsConstructor @AllArgsConstructor
 public class Student {
 
     @Id
-    @Column(name = "ST_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(
+            name = "st_id",
+            updatable = false
+    )
+    private Integer id;
 
-    @Column(name = "COD_STUDENT")
     @SequenceGenerator(
             name = "cod_sequence",
             sequenceName = "cod_sequence",
@@ -26,32 +30,71 @@ public class Student {
             strategy = GenerationType.SEQUENCE,
             generator = "cod_sequence"
     )
-    private long codStudent;
+    @Column(
+            name = "cod_student",
+            updatable = false
+    )
+    private Integer codStudent;
 
-    @Column(name = "ST_NAME")
+    @NotNull
+    @Column(name = "st_name")
     private String name;
 
-    @Column(name = "BIRTHDAY")
+    @NotNull
+    @Column(name = "birthday")
     private LocalDate birthday;
 
-    @Column(name = "AGE")
-    private int age;
+    @NotNull
+    @Column(name = "age")
+    private Integer age;
 
-    @Column(name = "NATURALITY")
+    @NotNull
+    @Column(name = "naturality")
     private String naturality;
 
-    @Column(name = "FATHER_NAME")
+    @NotNull
+    @Column(name = "father_name")
     private String fatherName;
 
-    @Column(name = "MOTHER_NAME")
+    @NotNull
+    @Column(name= "godfather")
+    private boolean godfather;
+
+    @NotNull
+    @Column(name= "dead_father")
+    private boolean deadFather;
+
+    @NotNull
+    @Column(name = "mother_name")
     private String motherName;
+
+    @NotNull
+    @Column(name= "godmother")
+    private boolean godmother;
+
+    @NotNull
+    @Column(name= "dead_mother")
+    private boolean deadMother;
+
+    @NotNull
+    @Column(name = "phone")
+    private String phone;
+
+    @NotNull
+    @Column(name = "message_phone")
+    private String messagePhone;
 
     @OneToOne(mappedBy = "student")
     private Address address;
 
-    @Column(name = "PHONE")
-    private String phone;
+    @OneToOne(mappedBy = "student")
+    private Habitation habitation;
 
-    @Column(name = "MESSAGE_PHONE")
-    private String messagePhone;
+    /*@OneToOne(mappedBy = "student")
+    private Health health;
+
+    @OneToOne(mappedBy = "student")
+    private SocialAssistance socialAssistance;
+*/
+
 }

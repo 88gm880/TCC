@@ -6,8 +6,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.openjfx.control.repositories.AddressRepository;
+import org.openjfx.control.repositories.HabitationRepository;
 import org.openjfx.control.repositories.StudentRepository;
 import org.openjfx.model.entity.Address;
+import org.openjfx.model.entity.Habitation;
 import org.openjfx.model.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -84,6 +86,16 @@ public class RegisterController implements Initializable {
     private TextField lgAge;
     @FXML
     private ChoiceBox<String> lgMaritalStatus;
+    @FXML
+    private ChoiceBox<String> residenceKind;
+    @FXML
+    private TextField otherResidenceKind;
+    @FXML
+    private ChoiceBox<String> buildingType;
+    @FXML
+    private TextField otherBuildingType;
+    @FXML
+    private ToggleGroup sewerRb;
 
 
     //private StudentDAO studentDAO = new StudentDAO();
@@ -91,12 +103,16 @@ public class RegisterController implements Initializable {
     private StudentRepository studentRepository;
     @Autowired
     private AddressRepository addressRepository;
+    @Autowired
+    private HabitationRepository habitationRepository;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         rooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
         bedrooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
         lgMaritalStatus.getItems().addAll("Solteiro", "Casado", "União estável", "Viúvo");
+        residenceKind.getItems().addAll("Particular permanente", "Particular provisório", "Particular coletivo", "Outros:");//TODO
+        buildingType.getItems().addAll("Alvenaria", "Madeira", "Misto", "Outros:");
     }
 
     public void birthdayOnAction(ActionEvent event) throws RuntimeException {
@@ -139,34 +155,19 @@ public class RegisterController implements Initializable {
         new Student(name.getText(), birthday.getValue(), age, naturality.getText(),
                 fatherName.getText(), motherName.getText(), address, phone.getText(), messagePhone.getText()
         */
-        Address address = Address.builder()
-                .street(addressStreet.getText())
-                .number(addressNumber.getText())
-                .district(addressDistrict.getText())
-                .complement(addressComplement.getText())
-                .build();
-
-        /*Habitation habitation = Habitation.builder()
-                .build();
-
-        Health health = Health.builder()
-                .build();
-
-        SocialAssistance socialAssistance = SocialAssistance.builder()
-                .build();*/
 
         //Cria um aluno com os atributos setados
-        Student student = Student.builder()
+        final Student student = Student.builder()
                 .name(name.getText())
                 .birthday(birthday.getValue())
                 .age(age)
                 .naturality(naturality.getText())
                 .fatherName(fatherName.getText())
-                //.godfather(godfather.isSelected())
-                //.deadFather(deadFather.isSelected())
+                .godfather(godfather.isSelected())
+                .deadFather(deadFather.isSelected())
                 .motherName(motherName.getText())
-                //.godmother(godmother.isSelected())
-                //.deadMother(deadMother.isSelected())
+                .godmother(godmother.isSelected())
+                .deadMother(deadMother.isSelected())
                 .phone(phone.getText())
                 .messagePhone(messagePhone.getText())
                 //.address(address)
@@ -175,9 +176,42 @@ public class RegisterController implements Initializable {
                 //.socialAssistance(socialAssistance)
                 .build();
 
-        address.setStudent(student);
+        final Address address = Address.builder()
+                .street(addressStreet.getText())
+                .number(addressNumber.getText())
+                .district(addressDistrict.getText())
+                .complement(addressComplement.getText())
+                .student(student)
+                .build();
+
+
+        final Habitation habitation = Habitation.builder()
+                .residenceKind(residenceKind.getValue().equals("Outros:")
+                        ? otherResidenceKind.getText() : residenceKind.getValue())
+                .privateEletricity(false)
+                .sewer(isSelectedYes(sewerRb))
+                .buildingType(buildingType.getValue().equals("Outros:")
+                        ? otherBuildingType.getText() : buildingType.getValue())
+                .rooms(rooms.getValue())
+                .bedrooms(bedrooms.getValue())
+                .student(student)
+                .build();
+
+        /*
+
+        Health health = Health.builder()
+                .build();
+
+        SocialAssistance socialAssistance = SocialAssistance.builder()
+                .build();*/
+
         studentRepository.save(student);
         addressRepository.save(address);
-        //studentDAO.registerStudent(student);
+        habitationRepository.save(habitation);
+
+    }
+
+    private boolean isSelectedYes(ToggleGroup toggleGroup){
+        return !((RadioButton)toggleGroup.getSelectedToggle()).getText().equals("Não");
     }
 }
