@@ -30,22 +30,24 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //root.getChildren().add(ScreensEnum.welcome.node);
+        /*root.getChildren().add(ScreensEnum.welcome.getNode());
+        lastId = ScreensEnum.welcome.getId();*/
+        //ScreensEnum.setPane(ScreensEnum.welcome);
     }
 
     public void menuCadastrarOnAction(ActionEvent event) {
-        setPane(ScreensEnum.register);
+        ScreensEnum.setPane(ScreensEnum.register);
     }
 
     public void menuListaOnAction(ActionEvent event) {
-        setPane(ScreensEnum.list);
+        ScreensEnum.setPane(ScreensEnum.list);
     }
 
     private void setPane(ScreensEnum pane) {
-        if (lastId != pane.id) {
-            root.getChildren().remove(ScreensEnum.findById(lastId).node);
-            root.getChildren().add(pane.node);
-            lastId = pane.id;
+        if (lastId != pane.getId()) {
+            root.getChildren().remove(ScreensEnum.findById(lastId).getNode());
+            root.getChildren().add(pane.getNode());
+            lastId = pane.getId();
         } else {
             System.out.println("Já está nessa tela");
         }

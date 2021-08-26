@@ -452,12 +452,15 @@
                         </Label>
                         <VBox alignment="CENTER_LEFT">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="Água encanada particular">
+                              <RadioButton mnemonicParsing="false" text="Água encanada particular">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
-                              </CheckBox>
-                              <CheckBox mnemonicParsing="false" text="Água encanada medidor coletivo" />
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="pipedWaterRb" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="Água encanada medidor coletivo" toggleGroup="$pipedWaterRb" />
                            </children>
                            <HBox.margin>
                               <Insets left="5.0" right="10.0" />
@@ -465,12 +468,15 @@
                         </VBox>
                         <VBox alignment="CENTER_LEFT">
                            <children>
-                              <CheckBox mnemonicParsing="false" text="Luz elétrica particular">
+                              <RadioButton mnemonicParsing="false" text="Luz elétrica particular">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
-                              </CheckBox>
-                              <CheckBox mnemonicParsing="false" text="Luz elétrica medidor coletivo" />
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="eletricLightRb" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="Luz elétrica medidor coletivo" toggleGroup="$eletricLightRb" />
                            </children>
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />

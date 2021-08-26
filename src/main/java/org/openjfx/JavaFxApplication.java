@@ -33,7 +33,7 @@ public class JavaFxApplication extends Application {
 
         File logo2File = new File(getClass().getClassLoader().getResource("org/openjfx/images/logo1.png").getFile());
         //FxWeaver fxWeaver = applicationContext.getBean(FxWeaver.class);
-        Parent root = (Parent) ScreensEnum.login.node;
+        Parent root = (Parent) ScreensEnum.login.getNode();
         primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.getIcons().add(new Image(logo2File.toURI().toString()));
         primaryStage.setTitle("Gerenciador Casa do Piá");

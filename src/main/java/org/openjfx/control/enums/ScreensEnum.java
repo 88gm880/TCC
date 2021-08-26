@@ -2,11 +2,10 @@ package org.openjfx.control.enums;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.layout.VBox;
+import lombok.Getter;
 import org.openjfx.JavaFxApplication;
-import org.openjfx.control.ListController;
-import org.openjfx.control.LoginController;
-import org.openjfx.control.RegisterController;
-import org.openjfx.control.WelcomeController;
+import org.openjfx.control.*;
 
 public enum ScreensEnum {
 
@@ -14,7 +13,7 @@ public enum ScreensEnum {
     welcome(1, WelcomeController.class),  //
     register(2, RegisterController.class),  //
     list(3, ListController.class),          //
-    ;
+    menu(4, MenuController.class);
 
     private ScreensEnum(int id, Class controller) {
         this.id = id;
@@ -35,6 +34,19 @@ public enum ScreensEnum {
         return null;
     }
 
-    public final int id;
-    public final Node node;
+    public static void setPane(ScreensEnum pane) {
+        if (lastPaneId != 0)
+            root.getChildren().remove(findById(lastPaneId).node);
+        root.getChildren().add(pane.node);
+        lastPaneId = pane.id;
+    }
+
+    @Getter
+    private final int id;
+    @Getter
+    private final Node node;
+    @Getter
+    private static final VBox root = (VBox) menu.node;
+    private static int lastPaneId = 0;
+
 }

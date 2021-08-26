@@ -27,10 +27,10 @@ public class WelcomeController implements Initializable {
     }
 
     public void registerScreenOnAction(ActionEvent event) {
-
+        ScreensEnum.setPane(ScreensEnum.register);
     }
 
     public void listScreenOnAction(ActionEvent event) {
-
+        ScreensEnum.setPane(ScreensEnum.list);
     }
 }

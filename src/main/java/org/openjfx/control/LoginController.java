@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
+import org.openjfx.control.enums.ScreensEnum;
 import org.openjfx.control.repositories.LoginRepository;
 import org.openjfx.model.entity.Login;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,11 +49,13 @@ public class LoginController implements Initializable {
         File logo2File = new File(getClass().getClassLoader().getResource("org/openjfx/images/logo2.png").getFile());
         Image logo2Image = new Image(logo2File.toURI().toString());
 
-        loginLogoImg.setImage(logo2Image);
+        //Config para login padrão
+        /*loginLogoImg.setImage(logo2Image);
         Login login = new Login();
         login.setLoginUser("gmacias");
         login.setLoginPassword("admin");
-        loginRepository.save(login);
+        loginRepository.save(login);*/
+
     }
 
     public void loginBtnOnAction(ActionEvent event) {
@@ -75,7 +78,7 @@ public class LoginController implements Initializable {
             loginErrorLbl.setOpacity(1.0);
         } else if (loginRepository.isValidLogin(username, password)) {
             System.out.println("Logou");
-            openNew();
+            login();
             loginErrorLbl.setOpacity(0.0);
         } else {
             loginErrorLbl.setText("Login e/ou senha incorretos. Tente novamente.");
@@ -83,12 +86,13 @@ public class LoginController implements Initializable {
         }
     }
 
-    public void openNew() {
+    public void login() {
         try {
-            VBox root = FXMLLoader.load(getClass().getResource("../view/menu.fxml"));
+            VBox root = (VBox) ScreensEnum.menu.getNode();
             Stage stage = (Stage) loginBtn.getScene().getWindow();
             stage.setResizable(true);
             stage.setScene(new Scene(root, 870, 590));
+            ScreensEnum.setPane(ScreensEnum.welcome);
         } catch (Exception e) {
             //System.out.println("Problema ao carregar a tela");
             e.printStackTrace();
