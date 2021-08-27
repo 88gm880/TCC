@@ -11,7 +11,7 @@ public interface LoginRepository extends JpaRepository<Login, Integer> {
     @Query("select (count(*) = 1 ) " +
             "from Login " +
             "where login_user = :username " +
-            "and login_password = :password")
+            "and login_pwd = :password")
     public boolean isValidLogin(
             @Param("username")String username,
             @Param("password")String password);

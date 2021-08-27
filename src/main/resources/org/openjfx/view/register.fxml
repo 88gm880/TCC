@@ -28,7 +28,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
                      <children>
-                        <Label text="Nome: ">
+                        <Label text="Nome:">
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
@@ -42,7 +42,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
                      <children>
-                        <Label text="Data de nascimento: ">
+                        <Label text="Data de nascimento:">
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
@@ -159,12 +159,12 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
                      <children>
-                        <Label prefHeight="17.0" prefWidth="34.0" text="Rua:">
+                        <Label text="Rua:">
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="addressStreet" prefHeight="25.0" prefWidth="315.0">
+                        <TextField fx:id="addressStreet" prefHeight="25.0" prefWidth="320.0">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -183,22 +183,32 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
                      <children>
-                        <Label prefHeight="17.0" prefWidth="67.0" text="Bairro/Vila:">
+                        <Label text="Bairro/Vila:">
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="addressDistrict" prefHeight="25.0" prefWidth="283.0">
+                        <TextField fx:id="addressDistrict" prefHeight="25.0" prefWidth="285.0">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </TextField>
+                        <Label text="Complemento:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="addressComplement" prefHeight="25.0" prefWidth="220.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="870.0">
+                     <children>
                         <Label text="Ponto de Referência:">
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="addressComplement" prefHeight="25.0" prefWidth="238.0">
+                        <TextField fx:id="addressReference" prefHeight="25.0" prefWidth="238.0">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -243,7 +253,7 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="BOTTOM_CENTER" prefHeight="123.0" prefWidth="870.0">
+                  <HBox alignment="BOTTOM_CENTER" prefHeight="111.0" prefWidth="870.0">
                      <children>
                         <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="435.0">
                            <children>
@@ -440,7 +450,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </ChoiceBox>
-                        <TextField fx:id="otherResidenceKind" />
+                        <TextField fx:id="otherResidenceKind" promptText="Outros domicilios" />
                      </children>
                   </HBox>
                   <HBox prefHeight="60.0" prefWidth="868.0">
@@ -518,7 +528,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </ChoiceBox>
-                        <TextField fx:id="otherBuildingType" />
+                        <TextField fx:id="otherBuildingType" promptText="Outras edificações" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -559,15 +569,15 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                            <toggleGroup>
-                              <ToggleGroup fx:id="fisicalHealthRb" />
+                              <ToggleGroup fx:id="physicalHealthRb" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$fisicalHealthRb">
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$physicalHealthRb">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                        <TextField fx:id="obsPhysical" prefHeight="25.0" prefWidth="267.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -590,7 +600,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                        <TextField fx:id="obsMental" prefHeight="25.0" prefWidth="267.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -613,7 +623,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                        <TextField fx:id="obsMedical" prefHeight="25.0" prefWidth="267.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -636,7 +646,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                        <TextField fx:id="obsRemedy" prefHeight="25.0" prefWidth="267.0" />
                      </children>
                   </HBox>
                   <HBox alignment="BOTTOM_CENTER" prefHeight="75.0" prefWidth="868.0">

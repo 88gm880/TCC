@@ -3,14 +3,23 @@ package org.openjfx.control;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.openjfx.control.repositories.AddressRepository;
 import org.openjfx.control.repositories.HabitationRepository;
 import org.openjfx.control.repositories.StudentRepository;
-import org.openjfx.model.entity.Address;
 import org.openjfx.model.entity.Habitation;
 import org.openjfx.model.entity.Student;
+import org.openjfx.model.entity.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,81 +33,30 @@ import java.util.ResourceBundle;
 public class RegisterController implements Initializable {
 
     @FXML
-    private TextField name;
+    private TabPane tabPane;
     @FXML
     private DatePicker birthday;
     @FXML
-    private TextField ageTxt;
+    private Spinner<Integer> rooms, bedrooms;
+    @FXML
+    private CheckBox godfather, deadFather, godmother, deadMother;
+    @FXML
+    private ChoiceBox<String> lgMaritalStatus, residenceKind, buildingType;
+    @FXML
+    private Button nextBtn0, nextBtn1, nextBtn2, nextBtn3,
+            prevBtn1, prevBtn2, prevBtn3;
+    @FXML
+    private ToggleGroup physicalHealthRb, mentalHealthRb, medicalRb, remedyRb, sewerRb,
+            sexoRb, pipedWaterRb, eletricLightRb;
+    @FXML
+    private TextField name, ageTxt, naturality, fatherName, motherName, phone, messagePhone, //
+            addressStreet, addressNumber, addressDistrict, addressComplement, addressReference,//
+            otherResidenceKind, otherBuildingType,  //
+            legalGuardian, lgRelation, lgCpf, lgAge,
+            obsPhysical, obsMental, obsMedical, obsRemedy;  //
+
     private int age;
-    @FXML
-    private TextField naturality;
-    @FXML
-    private TextField fatherName;
-    @FXML
-    private CheckBox godfather;
-    @FXML
-    private CheckBox deadFather;
-    @FXML
-    private CheckBox godmother;
-    @FXML
-    private CheckBox deadMother;
-    @FXML
-    private TextField motherName;
-    @FXML
-    private TextField addressStreet;
-    @FXML
-    private TextField addressNumber;
-    @FXML
-    private TextField addressDistrict;
-    @FXML
-    private TextField addressComplement;
-    @FXML
-    private TextField phone;
-    @FXML
-    private TextField messagePhone;
-    @FXML
-    private TabPane tabPane;
-    @FXML
-    private Button nextBtn0;
-    @FXML
-    private Button nextBtn1;
-    @FXML
-    private Button nextBtn2;
-    @FXML
-    private Button nextBtn3;
-    @FXML
-    private Button prevBtn1;
-    @FXML
-    private Button prevBtn2;
-    @FXML
-    private Button prevBtn3;
-    @FXML
-    private Spinner<Integer> rooms;
-    @FXML
-    private Spinner<Integer> bedrooms;
-    @FXML
-    private TextField legalGuardian;
-    @FXML
-    private TextField lgRelation;
-    @FXML
-    private TextField lgCpf;
-    @FXML
-    private TextField lgAge;
-    @FXML
-    private ChoiceBox<String> lgMaritalStatus;
-    @FXML
-    private ChoiceBox<String> residenceKind;
-    @FXML
-    private TextField otherResidenceKind;
-    @FXML
-    private ChoiceBox<String> buildingType;
-    @FXML
-    private TextField otherBuildingType;
-    @FXML
-    private ToggleGroup sewerRb;
 
-
-    //private StudentDAO studentDAO = new StudentDAO();
     @Autowired
     private StudentRepository studentRepository;
     @Autowired
@@ -111,7 +69,7 @@ public class RegisterController implements Initializable {
         rooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
         bedrooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
         lgMaritalStatus.getItems().addAll("Solteiro", "Casado", "União estável", "Viúvo");
-        residenceKind.getItems().addAll("Particular permanente", "Particular provisório", "Particular coletivo", "Outros:");//TODO
+        residenceKind.getItems().addAll("Particular permanente", "Particular provisório", "Particular coletivo", "Outros:");
         buildingType.getItems().addAll("Alvenaria", "Madeira", "Misto", "Outros:");
     }
 
@@ -147,15 +105,6 @@ public class RegisterController implements Initializable {
 
     public void registerBtnOnAction(ActionEvent event) {
 
-        /* Código antigo:
-        address.setStreet(addressStreet.getText());
-        address.setNumber(addressNumber.getText());
-        address.setDistrict(addressDistrict.getText());
-        address.setComplement(addressComplement.getText());
-        new Student(name.getText(), birthday.getValue(), age, naturality.getText(),
-                fatherName.getText(), motherName.getText(), address, phone.getText(), messagePhone.getText()
-        */
-
         //Cria um aluno com os atributos setados
         final Student student = Student.builder()
                 .name(name.getText())
@@ -181,6 +130,7 @@ public class RegisterController implements Initializable {
                 .number(addressNumber.getText())
                 .district(addressDistrict.getText())
                 .complement(addressComplement.getText())
+                .reference(addressReference.getText())
                 .student(student)
                 .build();
 
@@ -188,8 +138,9 @@ public class RegisterController implements Initializable {
         final Habitation habitation = Habitation.builder()
                 .residenceKind(residenceKind.getValue().equals("Outros:")
                         ? otherResidenceKind.getText() : residenceKind.getValue())
-                .privateEletricity(false)
-                .sewer(isSelectedYes(sewerRb))
+                .privatePipedWater(isSelectedTrue(pipedWaterRb, "Água encanada particular"))
+                .privateEletricity(isSelectedTrue(eletricLightRb,"Luz elétrica particular"))
+                .sewer(isSelectedTrue(sewerRb, "Sim"))
                 .buildingType(buildingType.getValue().equals("Outros:")
                         ? otherBuildingType.getText() : buildingType.getValue())
                 .rooms(rooms.getValue())
@@ -211,7 +162,7 @@ public class RegisterController implements Initializable {
 
     }
 
-    private boolean isSelectedYes(ToggleGroup toggleGroup){
-        return !((RadioButton)toggleGroup.getSelectedToggle()).getText().equals("Não");
+    private boolean isSelectedTrue(ToggleGroup toggleGroup, String trueOption) {
+        return !((RadioButton) toggleGroup.getSelectedToggle()).getText().equals(trueOption);
     }
 }

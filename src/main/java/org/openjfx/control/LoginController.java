@@ -48,10 +48,10 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File logo2File = new File(getClass().getClassLoader().getResource("org/openjfx/images/logo2.png").getFile());
         Image logo2Image = new Image(logo2File.toURI().toString());
+        loginLogoImg.setImage(logo2Image);
 
         //Config para login padrão
-        /*loginLogoImg.setImage(logo2Image);
-        Login login = new Login();
+        /*Login login = new Login();
         login.setLoginUser("gmacias");
         login.setLoginPassword("admin");
         loginRepository.save(login);*/
