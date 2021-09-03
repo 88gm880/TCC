@@ -48,7 +48,7 @@ public class RegisterController implements Initializable {
     @FXML
     private ChoiceBox<String> lgMaritalStatus, residenceKind, buildingType;
     @FXML
-    private Button nextBtn0, nextBtn1, nextBtn2, nextBtn3,
+    private Button nextBtn0, nextBtn1, nextBtn2, //nextBtn3,
             prevBtn1, prevBtn2, prevBtn3;
     @FXML
     private ToggleGroup physicalHealthRb, mentalHealthRb, medicalRb, remedyRb, sewerRb,
@@ -100,9 +100,9 @@ public class RegisterController implements Initializable {
             name.setPromptText("");*/
         } else if (event.getSource().equals(nextBtn2)) {
             tabPane.getSelectionModel().select(3);
-        } else if (event.getSource().equals(nextBtn3)) {
+        } /*else if (event.getSource().equals(nextBtn3)) {
             tabPane.getSelectionModel().select(4);
-        }
+        }*/
     }
 
     public void prevBtnOnAction(ActionEvent event) {
