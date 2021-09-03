@@ -183,7 +183,7 @@ public class RegisterController implements Initializable {
         healthRepository.save(health);
         socialAssistanceRepository.save(socialAssistance);
 
-        //TODO mover botão de registrar, e ajeitar lista de estudantes
+        //TODO ajeitar lista de estudantes
     }
 
     /*

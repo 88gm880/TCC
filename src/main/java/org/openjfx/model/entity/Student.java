@@ -102,7 +102,7 @@ public class Student implements Serializable {
     @Column(name = "message_phone")
     private String messagePhone;
 
-    @OneToOne(mappedBy = "student")
+    /*@OneToOne(mappedBy = "student")
     private Address address;
 
     @OneToOne(mappedBy = "student")
@@ -112,6 +112,6 @@ public class Student implements Serializable {
     private Health health;
 
     @OneToOne(mappedBy = "student")
-    private SocialAssistance socialAssistance;
+    private SocialAssistance socialAssistance;*/
 
 }

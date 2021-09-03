@@ -15,7 +15,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -145,7 +144,7 @@
                      </children>
                   </HBox>
                   <Separator prefHeight="15.0" prefWidth="819.0" />
-                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                  <HBox alignment="CENTER" prefHeight="11.0" prefWidth="870.0">
                      <children>
                         <Label alignment="CENTER" text="Endereço" textAlignment="CENTER" textOverrun="CLIP">
                            <font>
@@ -253,23 +252,8 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="BOTTOM_CENTER" prefHeight="111.0" prefWidth="870.0">
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="105.0" prefWidth="870.0">
                      <children>
-                        <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="435.0">
-                           <children>
-                              <Button fx:id="registerBtn" mnemonicParsing="false" onAction="#registerBtnOnAction" text="Registrar">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" />
-                           </padding>
-                        </HBox>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="435.0">
                            <children>
                               <Button fx:id="nextBtn0" mnemonicParsing="false" onAction="#nextBtnOnAction" text="Próximo">
@@ -354,7 +338,7 @@
                      </children>
                   </HBox>
                   <Separator prefWidth="200.0" />
-                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="870.0">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" text="Com Quem Mora" textAlignment="JUSTIFY">
                            <font>
@@ -387,7 +371,7 @@
                         </TableView>
                      </children>
                   </HBox>
-                  <HBox alignment="BOTTOM_CENTER" prefHeight="96.0" prefWidth="868.0">
+                  <HBox alignment="BOTTOM_CENTER" prefHeight="109.0" prefWidth="870.0">
                      <children>
                         <HBox alignment="BOTTOM_LEFT" prefHeight="96.0" prefWidth="435.0">
                            <children>
@@ -429,7 +413,7 @@
       <content>
             <VBox>
                <children>
-                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="870.0">
                      <children>
                         <Label text="Habitação">
                            <font>
@@ -548,7 +532,7 @@
                      </children>
                   </HBox>
                   <Separator prefWidth="200.0" />
-                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="870.0">
                      <children>
                         <Label text="Saúde">
                            <font>
@@ -649,9 +633,9 @@
                         <TextField fx:id="remedyObs" prefHeight="25.0" prefWidth="267.0" />
                      </children>
                   </HBox>
-                  <HBox alignment="BOTTOM_CENTER" prefHeight="75.0" prefWidth="868.0">
+                  <HBox alignment="BOTTOM_CENTER" prefHeight="98.0" prefWidth="870.0">
                      <children>
-                        <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="435.0">
+                        <HBox alignment="BOTTOM_LEFT" prefHeight="91.0" prefWidth="435.0">
                            <padding>
                               <Insets bottom="20.0" left="20.0" />
                            </padding>
@@ -663,7 +647,7 @@
                               </Button>
                            </children>
                         </HBox>
-                        <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="435.0">
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="435.0">
                            <children>
                               <Button fx:id="nextBtn2" mnemonicParsing="false" onAction="#nextBtnOnAction" text="Próximo">
                                  <font>
@@ -688,7 +672,7 @@
          <content>
             <VBox>
                <children>
-                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="870.0">
                      <children>
                         <Label text="Assistência social">
                            <font>
@@ -759,7 +743,7 @@
                      </children>
                   </HBox>
                   <Separator prefWidth="200.0" />
-                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="868.0">
+                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="870.0">
                      <children>
                         <Label text="Escolaridade">
                            <font>
@@ -786,10 +770,10 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                            <toggleGroup>
-                              <ToggleGroup fx:id="schoolPeriodRb" />
+                              <ToggleGroup fx:id="schoolTermRb" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Vespertino" toggleGroup="$schoolPeriodRb">
+                        <RadioButton mnemonicParsing="false" text="Vespertino" toggleGroup="$schoolTermRb">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
@@ -839,9 +823,53 @@
                         <TextField />
                      </children>
                   </HBox>
-                  <HBox alignment="BOTTOM_CENTER" prefHeight="175.0" prefWidth="868.0">
+                  <Separator prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="870.0">
                      <children>
-                        <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="435.0">
+                        <Label text="Ingresso na Casa do Piá">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="870.0">
+                     <children>
+                        <Label text="Data de Início:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <DatePicker prefHeight="25.0" prefWidth="119.0" />
+                        <Label text="Turno que vai frequentar a Casa do Piá:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" text="Matutino">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="periodRb" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Vespertino" toggleGroup="$periodRb" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="870.0">
+                     <children>
+                        <Label text="Compareceu a Instituição por Encaminhamento:">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ChoiceBox prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_CENTER">
+                     <children>
+                        <HBox alignment="BOTTOM_LEFT" prefHeight="95.0" prefWidth="435.0">
                            <padding>
                               <Insets bottom="20.0" left="20.0" />
                            </padding>
@@ -853,18 +881,15 @@
                               </Button>
                            </children>
                         </HBox>
-                        <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="435.0">
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="95.0" prefWidth="435.0">
                            <padding>
                               <Insets bottom="20.0" right="20.0" />
                            </padding>
                            <children>
-                              <Button fx:id="nextBtn3" mnemonicParsing="false" onAction="#nextBtnOnAction" text="Próximo">
+                              <Button fx:id="registerBtn" mnemonicParsing="false" onAction="#registerBtnOnAction" text="Registrar">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
                               </Button>
                            </children>
                         </HBox>
@@ -872,23 +897,6 @@
                   </HBox>
                </children>
             </VBox>
-         </content>
-      </Tab>
-      <Tab text="Ingresso na Casa do Piá">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="14.0" layoutY="14.0" text="Data de Início:" />
-                  <DatePicker layoutX="94.0" layoutY="10.0" prefHeight="25.0" prefWidth="119.0" />
-                  <Label layoutX="230.0" layoutY="14.0" text="Data de Desligamento:" />
-                  <DatePicker layoutX="359.0" layoutY="10.0" prefHeight="25.0" prefWidth="119.0" />
-                  <Label layoutX="14.0" layoutY="54.0" text="Compareceu a Instituição por Encaminhamento:" />
-                  <ChoiceBox layoutX="276.0" layoutY="50.0" prefWidth="150.0" />
-                  <Label layoutX="14.0" layoutY="86.0" text="Turno que vai frequentar a Casa do Piá:" />
-                  <RadioButton layoutX="225.0" layoutY="86.0" mnemonicParsing="false" text="Matutino" />
-                  <RadioButton layoutX="304.0" layoutY="86.0" mnemonicParsing="false" text="Vespertino" />
-               </children>
-            </AnchorPane>
          </content>
       </Tab>
   </tabs>
