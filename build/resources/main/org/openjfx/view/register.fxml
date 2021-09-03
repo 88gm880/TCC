@@ -577,7 +577,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <TextField fx:id="obsPhysical" prefHeight="25.0" prefWidth="267.0" />
+                        <TextField fx:id="physicalObs" prefHeight="25.0" prefWidth="267.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -600,7 +600,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <TextField fx:id="obsMental" prefHeight="25.0" prefWidth="267.0" />
+                        <TextField fx:id="mentalObs" prefHeight="25.0" prefWidth="267.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -623,7 +623,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <TextField fx:id="obsMedical" prefHeight="25.0" prefWidth="267.0" />
+                        <TextField fx:id="medicalObs" prefHeight="25.0" prefWidth="267.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -646,7 +646,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <TextField fx:id="obsRemedy" prefHeight="25.0" prefWidth="267.0" />
+                        <TextField fx:id="remedyObs" prefHeight="25.0" prefWidth="267.0" />
                      </children>
                   </HBox>
                   <HBox alignment="BOTTOM_CENTER" prefHeight="75.0" prefWidth="868.0">
@@ -704,13 +704,13 @@
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField prefHeight="25.0" prefWidth="142.0" />
+                        <TextField fx:id="nis" prefHeight="25.0" prefWidth="142.0" />
                         <Label text="CRAS de Refencia:">
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField prefHeight="25.0" prefWidth="176.0" />
+                        <TextField fx:id="cras" prefHeight="25.0" prefWidth="176.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -887,29 +887,6 @@
                   <Label layoutX="14.0" layoutY="86.0" text="Turno que vai frequentar a Casa do Piá:" />
                   <RadioButton layoutX="225.0" layoutY="86.0" mnemonicParsing="false" text="Matutino" />
                   <RadioButton layoutX="304.0" layoutY="86.0" mnemonicParsing="false" text="Vespertino" />
-               </children>
-            </AnchorPane>
-         </content>
-      </Tab>
-      <Tab text="Termo de Compromisso">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="8.0" layoutY="14.0" text="Eu" />
-                  <TextField layoutX="23.0" layoutY="10.0" prefHeight="25.0" prefWidth="374.0" />
-                  <Label layoutX="405.0" layoutY="14.0" text="Comprometo-me a acompanhar " />
-                  <TextField layoutX="24.0" layoutY="44.0" prefHeight="25.0" prefWidth="373.0" />
-                  <Label layoutX="405.0" layoutY="48.0" text="Durante o período em que o mesmo estiver inscrito na" />
-                  <Label layoutX="3.0" layoutY="81.0" prefHeight="17.0" prefWidth="680.0" text="Casa do Piá, respeitando as normas do regimento interno, participando das reuniões, mantendo contato direto e imediato com" />
-                  <Label layoutX="-6.0" layoutY="98.0" />
-                  <Label layoutY="98.0" prefHeight="17.0" prefWidth="686.0" text="a coordenação e serviço social para comunicar qualquer fato que interfira diretamamente no atendimento da criança/adolescente" />
-                  <Label layoutY="115.0" text="inclusive comunicar desistência, ou quando for solicitado minha presença na entidade." />
-                  <Label layoutX="7.0" layoutY="161.0" text="Ponta Grossa" />
-                  <DatePicker layoutX="81.0" layoutY="157.0" prefHeight="25.0" prefWidth="125.0" />
-                  <Label layoutX="9.0" layoutY="198.0" text="Assinatura do Responsável:" />
-                  <TextField layoutX="161.0" layoutY="194.0" prefHeight="42.0" prefWidth="243.0" />
-                  <Label layoutX="311.0" layoutY="285.0" text="Carimbo e assinatura do Assistente Social responsável pela inscrição:" />
-                  <TextField layoutX="332.0" layoutY="323.0" prefHeight="119.0" prefWidth="308.0" />
                </children>
             </AnchorPane>
          </content>

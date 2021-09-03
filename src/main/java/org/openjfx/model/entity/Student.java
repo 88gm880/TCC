@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Setter;
 import lombok.Getter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,20 +35,18 @@ public class Student {
     )
     private Integer id;
 
-    @SequenceGenerator(
-            name = "cod_sequence",
-            sequenceName = "cod_sequence",
-            allocationSize = 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
             generator = "cod_sequence"
+    )
+    @GenericGenerator(
+            name = "cod_sequence",
+            strategy = "org.hibernate.id.UUIDGenerator"
     )
     @Column(
             name = "cod_student",
             updatable = false
     )
-    private Integer codStudent;
+    private String codStudent;
 
     @NotNull
     @Column(name = "st_name")
@@ -60,6 +59,10 @@ public class Student {
     @NotNull
     @Column(name = "age")
     private Integer age;
+
+    @NotNull
+    @Column(name = "sexo")
+    private char sexo;
 
     @NotNull
     @Column(name = "naturality")
@@ -103,11 +106,10 @@ public class Student {
     @OneToOne(mappedBy = "student")
     private Habitation habitation;
 
-    /*@OneToOne(mappedBy = "student")
+    @OneToOne(mappedBy = "student")
     private Health health;
 
     @OneToOne(mappedBy = "student")
     private SocialAssistance socialAssistance;
-*/
 
 }

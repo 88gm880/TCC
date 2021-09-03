@@ -93,6 +93,7 @@ public class LoginController implements Initializable {
             stage.setResizable(true);
             stage.setScene(new Scene(root, 870, 590));
             ScreensEnum.setPane(ScreensEnum.welcome);
+            ScreensEnum.getRoot().getScene().getStylesheets().add(getClass().getResource("../styles.css").toExternalForm());
         } catch (Exception e) {
             //System.out.println("Problema ao carregar a tela");
             e.printStackTrace();

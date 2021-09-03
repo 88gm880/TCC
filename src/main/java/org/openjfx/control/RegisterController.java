@@ -14,10 +14,15 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import net.rgielen.fxweaver.core.FxmlView;
+import org.openjfx.control.enums.ScreensEnum;
 import org.openjfx.control.repositories.AddressRepository;
 import org.openjfx.control.repositories.HabitationRepository;
+import org.openjfx.control.repositories.HealthRepository;
+import org.openjfx.control.repositories.SocialAssistanceRepository;
 import org.openjfx.control.repositories.StudentRepository;
 import org.openjfx.model.entity.Habitation;
+import org.openjfx.model.entity.Health;
+import org.openjfx.model.entity.SocialAssistance;
 import org.openjfx.model.entity.Student;
 import org.openjfx.model.entity.Address;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +56,9 @@ public class RegisterController implements Initializable {
     @FXML
     private TextField name, ageTxt, naturality, fatherName, motherName, phone, messagePhone, //
             addressStreet, addressNumber, addressDistrict, addressComplement, addressReference,//
-            otherResidenceKind, otherBuildingType,  //
+            otherResidenceKind, otherBuildingType, nis, cras, //
             legalGuardian, lgRelation, lgCpf, lgAge,
-            obsPhysical, obsMental, obsMedical, obsRemedy;  //
+            physicalObs, mentalObs, medicalObs, remedyObs;  //
 
     private int age;
 
@@ -63,6 +68,10 @@ public class RegisterController implements Initializable {
     private AddressRepository addressRepository;
     @Autowired
     private HabitationRepository habitationRepository;
+    @Autowired
+    private HealthRepository healthRepository;
+    @Autowired
+    private SocialAssistanceRepository socialAssistanceRepository;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -82,15 +91,18 @@ public class RegisterController implements Initializable {
     }
 
     public void nextBtnOnAction(ActionEvent event) {
-        if (event.getSource().equals(nextBtn0))
+        if (event.getSource().equals(nextBtn0)) {
             tabPane.getSelectionModel().select(1);
-        if (event.getSource().equals(nextBtn1))
+            //invalidTextField(name);
+        } else if (event.getSource().equals(nextBtn1)) {
             tabPane.getSelectionModel().select(2);
-        if (event.getSource().equals(nextBtn2))
+            /*name.getStyleClass().remove("invalid-field");
+            name.setPromptText("");*/
+        } else if (event.getSource().equals(nextBtn2)) {
             tabPane.getSelectionModel().select(3);
-        if (event.getSource().equals(nextBtn3))
+        } else if (event.getSource().equals(nextBtn3)) {
             tabPane.getSelectionModel().select(4);
-
+        }
     }
 
     public void prevBtnOnAction(ActionEvent event) {
@@ -111,6 +123,7 @@ public class RegisterController implements Initializable {
                 .birthday(birthday.getValue())
                 .age(age)
                 .naturality(naturality.getText())
+                .sexo(isSelectedTrue(sexoRb, "Masculino") ? 'M' : 'F')
                 .fatherName(fatherName.getText())
                 .godfather(godfather.isSelected())
                 .deadFather(deadFather.isSelected())
@@ -119,10 +132,6 @@ public class RegisterController implements Initializable {
                 .deadMother(deadMother.isSelected())
                 .phone(phone.getText())
                 .messagePhone(messagePhone.getText())
-                //.address(address)
-                //.habitation(habitation)
-                //.health(health)
-                //.socialAssistance(socialAssistance)
                 .build();
 
         final Address address = Address.builder()
@@ -139,7 +148,7 @@ public class RegisterController implements Initializable {
                 .residenceKind(residenceKind.getValue().equals("Outros:")
                         ? otherResidenceKind.getText() : residenceKind.getValue())
                 .privatePipedWater(isSelectedTrue(pipedWaterRb, "Água encanada particular"))
-                .privateEletricity(isSelectedTrue(eletricLightRb,"Luz elétrica particular"))
+                .privateEletricity(isSelectedTrue(eletricLightRb, "Luz elétrica particular"))
                 .sewer(isSelectedTrue(sewerRb, "Sim"))
                 .buildingType(buildingType.getValue().equals("Outros:")
                         ? otherBuildingType.getText() : buildingType.getValue())
@@ -148,21 +157,65 @@ public class RegisterController implements Initializable {
                 .student(student)
                 .build();
 
-        /*
 
         Health health = Health.builder()
+                .physicalIllness(isSelectedTrue(physicalHealthRb, "Sim:"))
+                .physicalObs(isSelectedTrue(physicalHealthRb, "Sim:") ? physicalObs.getText() : null)
+                .mentalIllness(isSelectedTrue(mentalHealthRb, "Sim:"))
+                .mentalObs(isSelectedTrue(mentalHealthRb, "Sim:") ? mentalObs.getText() : null)
+                .medicalMonitoring(isSelectedTrue(medicalRb, "Sim:"))
+                .medicalObs(isSelectedTrue(medicalRb, "Sim:") ?  medicalObs.getText() : null)
+                .continuousRemedy(isSelectedTrue(remedyRb, "Sim:"))
+                .remedyObs(isSelectedTrue(remedyRb, "Sim:") ? remedyObs.getText() : null)
+                .student(student)
                 .build();
 
         SocialAssistance socialAssistance = SocialAssistance.builder()
-                .build();*/
+                .nis(nis.getText())
+                .cras(cras.getText())
+                .student(student)
+                .build();
 
         studentRepository.save(student);
         addressRepository.save(address);
         habitationRepository.save(habitation);
+        healthRepository.save(health);
+        socialAssistanceRepository.save(socialAssistance);
 
+        //TODO mover botão de registrar, e ajeitar lista de estudantes
     }
 
+    /*
+     *  Retorna true se o valor selecionado no ToggleGroup for igual ao de trueOption
+     *  Returns true if the selected value in the ToggleGroup is equals to trueOption
+     * */
     private boolean isSelectedTrue(ToggleGroup toggleGroup, String trueOption) {
-        return !((RadioButton) toggleGroup.getSelectedToggle()).getText().equals(trueOption);
+        return ((RadioButton) toggleGroup.getSelectedToggle()).getText().equals(trueOption);
+    }
+
+    private boolean validateFields(int page) {
+        switch (page) {
+            /*case 0:
+                return validStudentAndAddress();*/
+            default:
+                return true;
+        }
+    }
+
+    /*private boolean validStudentAndAddress() {
+        boolean result = true;
+        return result;
+    }*/
+
+    private void invalidTextField(TextField field, String errorMessage) {
+        if (!field.getStyleClass().contains("invalid-field"))
+            field.getStyleClass().add("invalid-field");
+        field.setPromptText(errorMessage); // "Campo não pode estar vazio"
+    }
+
+    private void validTextField(TextField field, String promptText){
+        if (field.getStyleClass().contains("invalid-field"))
+            field.getStyleClass().remove("invalid-field");
+        field.setPromptText(promptText);
     }
 }

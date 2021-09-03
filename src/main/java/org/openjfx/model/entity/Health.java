@@ -37,17 +37,29 @@ public class Health {
     @Column(name = "physical_illness")
     private boolean physicalIllness;
 
+    @Column(name = "physical_obs")
+    private String physicalObs;
+
     @NotNull
     @Column(name = "mental_illness")
     private boolean mentalIllness;
+
+    @Column(name = "mental_obs")
+    private String mentalObs;
 
     @NotNull
     @Column(name = "medical_monitoring")
     private boolean medicalMonitoring;
 
+    @Column(name = "medical_obs")
+    private String medicalObs;
+
     @NotNull
     @Column(name = "remedy")
     private boolean continuousRemedy;
+
+    @Column(name = "remedy_obs")
+    private String remedyObs;
 
     @OneToOne
     @JoinColumn(name = "cod_student", referencedColumnName = "cod_student")

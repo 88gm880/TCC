@@ -1,11 +1,13 @@
 package org.openjfx.control;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import net.rgielen.fxweaver.core.FxmlView;
+import org.openjfx.control.repositories.StudentRepository;
 import org.openjfx.model.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,8 +34,8 @@ public class ListController implements Initializable {
     @FXML
     private TableColumn<Student, String> motherNameColumn;
 
-
-    //private StudentDAO studentDAO = new StudentDAO();
+    @Autowired
+    private StudentRepository studentRepository;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -41,7 +43,10 @@ public class ListController implements Initializable {
         ageColumn.setCellValueFactory(new PropertyValueFactory<Student, Integer>("age"));
         fatherNameColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("fatherName"));
         motherNameColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("motherName"));
+        updateTable();
+    }
 
-        //studentTableView.setItems(studentDAO.getAllStudents());
+    private void updateTable(){
+        studentTableView.setItems(FXCollections.observableList(studentRepository.findAll()));
     }
 }
