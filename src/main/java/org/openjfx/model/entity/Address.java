@@ -47,11 +47,11 @@ public class Address {
     @Column(name = "district")
     private String district;
 
-    @NotNull
+    //@NotNull
     @Column(name = "complement")
     private String complement;
 
-    @NotNull
+    //@NotNull
     @Column(name = "reference")
     private String reference;
 

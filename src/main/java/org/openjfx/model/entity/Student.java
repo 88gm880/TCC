@@ -15,17 +15,24 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Valid
 @Entity
 @Builder
 @Getter @Setter
-@Table(name = "STUDENT")
+@Table(
+        name = "student",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "cod_student_uk", columnNames = "cod_student")
+        }
+)
 @NoArgsConstructor @AllArgsConstructor
-public class Student {
+public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,16 +42,11 @@ public class Student {
     )
     private Integer id;
 
-    @GeneratedValue(
-            generator = "cod_sequence"
-    )
-    @GenericGenerator(
-            name = "cod_sequence",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
+    @NotNull
     @Column(
             name = "cod_student",
-            updatable = false
+            updatable = false,
+            unique = true
     )
     private String codStudent;
 

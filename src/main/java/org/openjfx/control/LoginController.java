@@ -2,7 +2,6 @@ package org.openjfx.control;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,7 +15,6 @@ import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.openjfx.control.enums.ScreensEnum;
 import org.openjfx.control.repositories.LoginRepository;
-import org.openjfx.model.entity.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -55,7 +53,6 @@ public class LoginController implements Initializable {
         login.setLoginUser("gmacias");
         login.setLoginPassword("admin");
         loginRepository.save(login);*/
-
     }
 
     public void loginBtnOnAction(ActionEvent event) {

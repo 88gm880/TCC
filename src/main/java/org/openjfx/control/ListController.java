@@ -48,5 +48,7 @@ public class ListController implements Initializable {
 
     private void updateTable(){
         studentTableView.setItems(FXCollections.observableList(studentRepository.findAll()));
+        studentRepository.findAll();
+
     }
 }

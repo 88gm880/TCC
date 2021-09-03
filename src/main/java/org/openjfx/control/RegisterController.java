@@ -14,7 +14,6 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import net.rgielen.fxweaver.core.FxmlView;
-import org.openjfx.control.enums.ScreensEnum;
 import org.openjfx.control.repositories.AddressRepository;
 import org.openjfx.control.repositories.HabitationRepository;
 import org.openjfx.control.repositories.HealthRepository;
@@ -32,6 +31,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
 @Component
 @FxmlView("../view/register.fxml")
@@ -120,6 +120,7 @@ public class RegisterController implements Initializable {
         //Cria um aluno com os atributos setados
         final Student student = Student.builder()
                 .name(name.getText())
+                .codStudent(UUID.randomUUID().toString())
                 .birthday(birthday.getValue())
                 .age(age)
                 .naturality(naturality.getText())
