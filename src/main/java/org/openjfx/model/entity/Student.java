@@ -17,6 +17,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -25,12 +26,7 @@ import java.time.LocalDate;
 @Entity
 @Builder
 @Getter @Setter
-@Table(
-        name = "student",
-        uniqueConstraints = {
-                @UniqueConstraint(name = "cod_student_uk", columnNames = "cod_student")
-        }
-)
+@Table(name = "student")
 @NoArgsConstructor @AllArgsConstructor
 public class Student implements Serializable {
 
@@ -43,14 +39,7 @@ public class Student implements Serializable {
     private Integer id;
 
     @NotNull
-    @Column(
-            name = "cod_student",
-            updatable = false,
-            unique = true
-    )
-    private String codStudent;
-
-    @NotNull
+    @NotEmpty
     @Column(name = "st_name")
     private String name;
 
@@ -102,7 +91,19 @@ public class Student implements Serializable {
     @Column(name = "message_phone")
     private String messagePhone;
 
-    /*@OneToOne(mappedBy = "student")
+    @NotNull
+    @Column(name = "start_date")
+    private LocalDate startDate;
+
+    @NotNull
+    @Column(name = "attending_shift")
+    private String attendingShift;
+
+    @NotNull
+    @Column(name = "referral_institution")
+    private String referralInstitution;
+
+    @OneToOne(mappedBy = "student")
     private Address address;
 
     @OneToOne(mappedBy = "student")
@@ -112,6 +113,8 @@ public class Student implements Serializable {
     private Health health;
 
     @OneToOne(mappedBy = "student")
-    private SocialAssistance socialAssistance;*/
+    private SocialAssistance socialAssistance;
 
+    @OneToOne(mappedBy = "student")
+    private Scholarity scholarity;
 }

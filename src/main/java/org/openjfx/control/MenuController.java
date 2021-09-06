@@ -6,8 +6,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
+import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
+import org.openjfx.JavaFxApplication;
 import org.openjfx.control.enums.ScreensEnum;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
@@ -28,11 +31,11 @@ public class MenuController implements Initializable {
 
     private int lastId = 0;
 
+    @Autowired
+    private ListController list;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*root.getChildren().add(ScreensEnum.welcome.getNode());
-        lastId = ScreensEnum.welcome.getId();*/
-        //ScreensEnum.setPane(ScreensEnum.welcome);
     }
 
     public void menuCadastrarOnAction(ActionEvent event) {
@@ -40,17 +43,9 @@ public class MenuController implements Initializable {
     }
 
     public void menuListaOnAction(ActionEvent event) {
-        ScreensEnum.setPane(ScreensEnum.list);
+        if (ScreensEnum.setPane(ScreensEnum.list))
+            list.updateTable();
     }
 
-    private void setPane(ScreensEnum pane) {
-        if (lastId != pane.getId()) {
-            root.getChildren().remove(ScreensEnum.findById(lastId).getNode());
-            root.getChildren().add(pane.getNode());
-            lastId = pane.getId();
-        } else {
-            System.out.println("Já está nessa tela");
-        }
-    }
 
 }

@@ -356,9 +356,10 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="279.0" prefWidth="868.0">
+                  <HBox prefHeight="40.0" prefWidth="870.0" />
+                  <HBox alignment="CENTER" prefHeight="215.0" prefWidth="870.0">
                      <children>
-                        <TableView prefHeight="179.0" prefWidth="819.0">
+                        <TableView prefHeight="199.0" prefWidth="819.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="Nome" />
                             <TableColumn prefWidth="51.0" text="Idade" />
@@ -717,7 +718,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <TextField />
+                        <TextField fx:id="bolsaFamiliaObs" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -735,11 +736,12 @@
                               <ToggleGroup fx:id="otherAssistancesRb" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Sim" toggleGroup="$otherAssistancesRb">
+                        <RadioButton mnemonicParsing="false" text="Sim:" toggleGroup="$otherAssistancesRb">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
+                        <TextField fx:id="otherAssistancesObs" />
                      </children>
                   </HBox>
                   <Separator prefWidth="200.0" />
@@ -759,7 +761,7 @@
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField prefHeight="25.0" prefWidth="267.0" />
+                        <TextField fx:id="schoolName" prefHeight="25.0" prefWidth="267.0" />
                         <Label text="Turno:">
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />
@@ -770,10 +772,10 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                            <toggleGroup>
-                              <ToggleGroup fx:id="schoolTermRb" />
+                              <ToggleGroup fx:id="schoolShiftRb" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Vespertino" toggleGroup="$schoolTermRb">
+                        <RadioButton mnemonicParsing="false" text="Vespertino" toggleGroup="$schoolShiftRb">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
@@ -787,7 +789,7 @@
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <ChoiceBox prefHeight="25.0" prefWidth="160.0" />
+                        <ChoiceBox fx:id="schoolGrade" prefHeight="25.0" prefWidth="160.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -810,7 +812,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <TextField prefHeight="25.0" prefWidth="227.0" />
+                        <TextField fx:id="learningDifficultyObs" prefHeight="25.0" prefWidth="227.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -820,7 +822,7 @@
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField />
+                        <TextField fx:id="scholarityObs" prefHeight="25.0" prefWidth="437.0" />
                      </children>
                   </HBox>
                   <Separator prefWidth="200.0" />
@@ -840,7 +842,7 @@
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <DatePicker prefHeight="25.0" prefWidth="119.0" />
+                        <DatePicker fx:id="startDate" prefHeight="25.0" prefWidth="119.0" />
                         <Label text="Turno que vai frequentar a Casa do Piá:">
                            <HBox.margin>
                               <Insets left="10.0" right="5.0" />
@@ -851,10 +853,10 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                            <toggleGroup>
-                              <ToggleGroup fx:id="periodRb" />
+                              <ToggleGroup fx:id="attendingShiftRb" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Vespertino" toggleGroup="$periodRb" />
+                        <RadioButton mnemonicParsing="false" text="Vespertino" toggleGroup="$attendingShiftRb" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="870.0">
@@ -864,7 +866,11 @@
                               <Insets left="10.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <ChoiceBox prefWidth="150.0" />
+                        <ChoiceBox fx:id="referralInstitution" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin></ChoiceBox>
+                        <TextField fx:id="otherReferral" promptText="Outras Instituições" />
                      </children>
                   </HBox>
                   <HBox alignment="BOTTOM_CENTER">

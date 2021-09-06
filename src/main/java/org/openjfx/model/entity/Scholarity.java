@@ -1,7 +1,5 @@
 package org.openjfx.model.entity;
 
-
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,40 +21,41 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Builder
 @Setter @Getter
-@Table(name = "address")
+@Table(name = "scholarity")
 @NoArgsConstructor @AllArgsConstructor
-public class Address {
+public class Scholarity {
 
     @Id
     @Column(
-            name = "address_id",
+            name = "scholarity_id",
             updatable = false
     )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
-    @Column(name = "street")
-    private String street;
+    @Column(name = "school_name")
+    private String schoolName;
 
     @NotNull
-    @Column(name = "number")
-    private String number;
+    @Column(name = "school_shift")
+    private String schoolShift;
 
     @NotNull
-    @Column(name = "district")
-    private String district;
+    @Column(name = "grade")
+    private String grade;
 
-    //@NotNull
-    @Column(name = "complement")
-    private String complement;
+    @NotNull
+    @Column(name = "learning_difficulty")
+    private boolean learningDifficulty;
 
-    //@NotNull
-    @Column(name = "reference")
-    private String reference;
+    @Column(name = "learning_difficulty_obs")
+    private String learningDifficultyObs;
+
+    @Column(name = "scholarity_obs")
+    private String scholarityObs;
 
     @OneToOne
     @JoinColumn(name = "st_id", referencedColumnName = "st_id")
     private Student student;
-
 }

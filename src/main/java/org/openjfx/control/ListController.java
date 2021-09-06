@@ -1,10 +1,13 @@
 package org.openjfx.control;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.openjfx.control.repositories.StudentRepository;
@@ -23,16 +26,15 @@ public class ListController implements Initializable {
     private TableView<Student> studentTableView;
 
     @FXML
-    private TableColumn<Student, String> nameColumn;
-
-    @FXML
     private TableColumn<Student, Integer> ageColumn;
 
     @FXML
-    private TableColumn<Student, String> fatherNameColumn;
+    private TableColumn<Student, String> nameColumn, fatherNameColumn, motherNameColumn;
 
     @FXML
-    private TableColumn<Student, String> motherNameColumn;
+    private TextField searchBar;
+
+    private ObservableList studentsList = FXCollections.emptyObservableList();
 
     @Autowired
     private StudentRepository studentRepository;
@@ -43,12 +45,14 @@ public class ListController implements Initializable {
         ageColumn.setCellValueFactory(new PropertyValueFactory<Student, Integer>("age"));
         fatherNameColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("fatherName"));
         motherNameColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("motherName"));
-        updateTable();
+        studentTableView.setItems(studentsList);
     }
 
-    private void updateTable(){
-        studentTableView.setItems(FXCollections.observableList(studentRepository.findAll()));
-        studentRepository.findAll();
+    public void teste(ActionEvent event) {
 
+    }
+
+        public void updateTable(){
+        studentsList = FXCollections.observableList(studentRepository.findAll());
     }
 }

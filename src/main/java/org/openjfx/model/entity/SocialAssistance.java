@@ -41,10 +41,22 @@ public class SocialAssistance {
     @Column(name = "cras")
     private String cras;
 
-    //TODO bolsa familia e outras assistencias
+    @NotNull
+    @Column(name="bolsa_familia")
+    private boolean bolsaFamilia;
+
+    @Column(name="bolsa_familia_obs")
+    private String bolsaFamiliaObs;
+
+    @NotNull
+    @Column(name="other_assistances")
+    private boolean otherAssistances;
+
+    @Column(name="other_assistances_obs")
+    private String otherAssistancesObs;
 
     @OneToOne
-    @JoinColumn(name = "cod_student", referencedColumnName = "cod_student")
+    @JoinColumn(name = "st_id", referencedColumnName = "st_id")
     private Student student;
 
 }

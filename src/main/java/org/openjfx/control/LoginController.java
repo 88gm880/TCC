@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.openjfx.control.enums.ScreensEnum;
 import org.openjfx.control.repositories.LoginRepository;
+import org.openjfx.model.entity.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,5 @@
 package org.openjfx.control.enums;
 
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
 import lombok.Getter;
@@ -34,11 +33,14 @@ public enum ScreensEnum {
         return null;
     }
 
-    public static void setPane(ScreensEnum pane) {
+    public static boolean setPane(ScreensEnum pane) {
+        if (lastPaneId == pane.id)
+            return false;
         if (lastPaneId != 0)
             root.getChildren().remove(findById(lastPaneId).node);
         root.getChildren().add(pane.node);
         lastPaneId = pane.id;
+        return true;
     }
 
     @Getter

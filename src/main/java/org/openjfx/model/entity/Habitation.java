@@ -62,7 +62,7 @@ public class Habitation {
     private Integer bedrooms;
 
     @OneToOne
-    @JoinColumn(name = "cod_student", referencedColumnName = "cod_student")
+    @JoinColumn(name = "st_id", referencedColumnName = "st_id")
     private Student student;
 
 }
