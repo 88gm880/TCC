@@ -2,8 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -12,24 +11,17 @@
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="40.0" prefWidth="870.0">
          <children>
-            <TextField fx:id="searchBar" onAction="#teste" prefHeight="25.0" prefWidth="320.0" promptText="Nome da criança atendida">
+            <TextField fx:id="searchBar" prefHeight="25.0" prefWidth="320.0" promptText="Nome da criança atendida">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
             </TextField>
-            <Button mnemonicParsing="false" text="Buscar" />
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#filterList" text="Buscar" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="257.0" prefWidth="870.0">
          <children>
-            <TableView fx:id="studentTableView" prefHeight="257.0" prefWidth="471.0">
-              <columns>
-                <TableColumn fx:id="nameColumn" prefWidth="138.0" text="Nome" />
-                <TableColumn fx:id="ageColumn" prefWidth="66.0" text="Idade" />
-                  <TableColumn fx:id="fatherNameColumn" prefWidth="141.0" text="Nome do pai" />
-                  <TableColumn fx:id="motherNameColumn" prefWidth="125.0" text="Nome da mãe" />
-              </columns>
-            </TableView>
+            <ListView fx:id="studentListView" onMouseClicked="#ListItemClick" prefHeight="257.0" prefWidth="400.0" />
          </children>
       </HBox>
    </children>

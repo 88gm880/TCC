@@ -1,7 +1,6 @@
 package org.openjfx.model.entity;
 
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,9 +21,11 @@ import javax.validation.constraints.NotNull;
 @Valid
 @Entity
 @Builder
-@Setter @Getter
+@Setter
+@Getter
 @Table(name = "address")
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class Address {
 
     @Id
@@ -59,4 +60,14 @@ public class Address {
     @JoinColumn(name = "st_id", referencedColumnName = "st_id")
     private Student student;
 
+    @Override
+    public String toString() {
+        return "{" +
+                ", street='" + street + "',\n" +
+                ", number='" + number + "',\n" +
+                ", district='" + district + "',\n" +
+                ", complement='" + complement + "',\n" +
+                ", reference='" + reference + "'\n" +
+                '}';
+    }
 }

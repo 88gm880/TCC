@@ -1,5 +1,6 @@
 package org.openjfx.control;
 
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,8 +12,11 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.openjfx.control.repositories.AddressRepository;
 import org.openjfx.control.repositories.HabitationRepository;
@@ -20,8 +24,10 @@ import org.openjfx.control.repositories.HealthRepository;
 import org.openjfx.control.repositories.ScholarityRepository;
 import org.openjfx.control.repositories.SocialAssistanceRepository;
 import org.openjfx.control.repositories.StudentRepository;
+import org.openjfx.model.ValidationUtils;
 import org.openjfx.model.entity.Habitation;
 import org.openjfx.model.entity.Health;
+import org.openjfx.model.entity.Kin;
 import org.openjfx.model.entity.Scholarity;
 import org.openjfx.model.entity.SocialAssistance;
 import org.openjfx.model.entity.Student;
@@ -32,12 +38,24 @@ import org.springframework.stereotype.Component;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 @Component
 @FxmlView("../view/register.fxml")
 public class RegisterController implements Initializable {
 
+
+    @FXML
+    private TableView<Kin> kinshipTableView;
+    @FXML
+    private TableColumn<Kin, Double> incomeColumn;
+    @FXML
+    private TableColumn<Kin, Integer> ageColumn;
+    @FXML
+    private TableColumn<Kin, String> nameColumn, attendedColumn, kinshipColumn,
+            scholarityColumn, occupationColumn;
     @FXML
     private TabPane tabPane;
     @FXML
@@ -47,10 +65,10 @@ public class RegisterController implements Initializable {
     @FXML
     private CheckBox godfather, deadFather, godmother, deadMother;
     @FXML
-    private ChoiceBox<String> lgMaritalStatus, residenceKind, buildingType, schoolGrade, referralInstitution;
+    private ChoiceBox<String> lgMaritalStatus, residenceKind, buildingType, schoolGrade, referralInstitution, kinScholarity;
     @FXML
     private Button nextBtn0, nextBtn1, nextBtn2,
-            prevBtn1, prevBtn2, prevBtn3;
+            prevBtn1, prevBtn2, prevBtn3, addKin;
     @FXML
     private ToggleGroup physicalHealthRb, mentalHealthRb, medicalRb, remedyRb, sewerRb,
             bolsaFamiliaRb, sexoRb, pipedWaterRb, eletricLightRb, otherAssistancesRb,
@@ -61,7 +79,8 @@ public class RegisterController implements Initializable {
             otherResidenceKind, otherBuildingType, nis, cras, bolsaFamiliaObs, otherAssistancesObs, //
             legalGuardian, lgRelation, lgCpf, lgAge,                                                //
             physicalObs, mentalObs, medicalObs, remedyObs,                                          //
-            schoolName, learningDifficultyObs, otherReferral, scholarityObs;                        //
+            schoolName, learningDifficultyObs, otherReferral, scholarityObs,                        //
+            kinName, kinAge, kinship, kinOccupation, kinIncome;                                     //
 
     private int age;
 
@@ -80,16 +99,10 @@ public class RegisterController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        rooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
-        bedrooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
-        lgMaritalStatus.getItems().addAll("Solteiro", "Casado", "União estável", "Viúvo");
-        residenceKind.getItems().addAll("Particular permanente", "Particular provisório", "Particular coletivo", "Outros:");
-        buildingType.getItems().addAll("Alvenaria", "Madeira", "Misto", "Outros:");
-        for (int i = 1; i <= 9; i++) //add 1° até 8° série
-            schoolGrade.getItems().add(i + "° ano");
-        for (int i = 1; i <= 3; i++) //add 1° até 3° ano do colegial
-            schoolGrade.getItems().add(i + "° ano do colegial");
-        referralInstitution.getItems().addAll("CRAS", "CREAS", "Conselho tutelar", "Procura espontânea", "Outros:");
+        //Map<BooleanBinding, String> messages = new HashMap<>();
+        configureKinTable();
+        configureInterfaceChoices();
+        //BooleanBinding nameInvalid = ValidationUtils.emptyTextFieldBinding(name, "Name is required", messages);
     }
 
     public void birthdayOnAction(ActionEvent event) throws RuntimeException {
@@ -101,25 +114,11 @@ public class RegisterController implements Initializable {
     }
 
     public void nextBtnOnAction(ActionEvent event) {
-        if (event.getSource().equals(nextBtn0)) {
-            tabPane.getSelectionModel().select(1);
-//            invalidTextField(name, "Campo não deve ser vazio");
-        } else if (event.getSource().equals(nextBtn1)) {
-            tabPane.getSelectionModel().select(2);
-            /*name.getStyleClass().remove("invalid-field");
-            name.setPromptText("");*/
-        } else if (event.getSource().equals(nextBtn2)) {
-            tabPane.getSelectionModel().select(3);
-        }
+        tabPane.getSelectionModel().selectNext();
     }
 
     public void prevBtnOnAction(ActionEvent event) {
-        if (event.getSource().equals(prevBtn1))
-            tabPane.getSelectionModel().select(0);
-        if (event.getSource().equals(prevBtn2))
-            tabPane.getSelectionModel().select(1);
-        if (event.getSource().equals(prevBtn3))
-            tabPane.getSelectionModel().select(2);
+        tabPane.getSelectionModel().selectPrevious();
     }
 
     public void registerBtnOnAction(ActionEvent event) {
@@ -151,7 +150,7 @@ public class RegisterController implements Initializable {
                 .district(addressDistrict.getText())
                 .complement(addressComplement.getText())
                 .reference(addressReference.getText())
-                //.student(student)
+                .student(student)
                 .build();
 
         final Habitation habitation = Habitation.builder()
@@ -185,7 +184,7 @@ public class RegisterController implements Initializable {
                 .bolsaFamilia(isSelectedTrue(bolsaFamiliaRb, "Sim?:"))
                 .bolsaFamiliaObs(isSelectedTrue(bolsaFamiliaRb, "Sim?:") ? bolsaFamiliaObs.getText() : null)
                 .otherAssistances(isSelectedTrue(otherAssistancesRb, "Sim:"))
-                .otherAssistancesObs(isSelectedTrue(otherAssistancesRb, "Sim:")? otherAssistancesObs.getText(): null)
+                .otherAssistancesObs(isSelectedTrue(otherAssistancesRb, "Sim:") ? otherAssistancesObs.getText() : null)
                 .student(student)
                 .build();
 
@@ -218,15 +217,6 @@ public class RegisterController implements Initializable {
         return ((RadioButton) toggleGroup.getSelectedToggle()).getText();
     }
 
-    private boolean validFields() {
-        return false;
-    }
-
-    /*private boolean validStudentAndAddress() {
-        boolean result = true;
-        return result;
-    }*/
-
     private void invalidTextField(TextField field, String errorMessage) {
         if (!field.getStyleClass().contains("invalid-field"))
             field.getStyleClass().add("invalid-field");
@@ -239,7 +229,46 @@ public class RegisterController implements Initializable {
         field.setPromptText(promptText);
     }
 
-    private void cleatTextFields() {
+    public void addKinColumn(ActionEvent event) {
+        kinshipTableView.getItems().add(
+                new Kin(kinName.getText(),
+                        Integer.parseInt(kinAge.getText()),
+                        kinship.getText(),
+                        "X",
+                        kinScholarity.getValue(),
+                        kinOccupation.getText(),
+                        Double.parseDouble(kinIncome.getText())
+                ));
+        kinName.clear();
+        kinAge.clear();
+        kinship.clear();
+        kinScholarity.getSelectionModel().clearSelection();
+        kinOccupation.clear();
+        kinIncome.clear();
+    }
 
+    private void configureKinTable() {
+        attendedColumn.setText("Possui irmãos que\nfrequentam a entidade?");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Kin, String>("name"));
+        ageColumn.setCellValueFactory(new PropertyValueFactory<Kin, Integer>("age"));
+        kinshipColumn.setCellValueFactory(new PropertyValueFactory<Kin, String>("kinship"));
+        attendedColumn.setCellValueFactory(new PropertyValueFactory<Kin, String>("attended"));
+        scholarityColumn.setCellValueFactory(new PropertyValueFactory<Kin, String>("scholarity"));
+        occupationColumn.setCellValueFactory(new PropertyValueFactory<Kin, String>("occupation"));
+        incomeColumn.setCellValueFactory(new PropertyValueFactory<Kin, Double>("income"));
+    }
+
+    private void configureInterfaceChoices(){
+        rooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
+        bedrooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
+        lgMaritalStatus.getItems().addAll("Solteiro", "Casado", "União estável", "Viúvo");
+        residenceKind.getItems().addAll("Particular permanente", "Particular provisório", "Particular coletivo", "Outros:");
+        buildingType.getItems().addAll("Alvenaria", "Madeira", "Misto", "Outros:");
+        for (int i = 1; i <= 9; i++) //add 1° até 8° série
+            schoolGrade.getItems().add(i + "° ano");
+        for (int i = 1; i <= 3; i++) //add 1° até 3° ano do colegial
+            schoolGrade.getItems().add(i + "° ano do colegial");
+        referralInstitution.getItems().addAll("CRAS", "CREAS", "Conselho tutelar", "Procura espontânea", "Outros:");
+        kinScholarity.getItems().addAll("Nenhuma", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Pós-graduação");
     }
 }

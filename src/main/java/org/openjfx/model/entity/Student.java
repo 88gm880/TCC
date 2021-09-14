@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Setter;
 import lombok.Getter;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
@@ -64,11 +65,11 @@ public class Student implements Serializable {
     private String fatherName;
 
     @NotNull
-    @Column(name= "godfather")
+    @Column(name = "godfather")
     private boolean godfather;
 
     @NotNull
-    @Column(name= "dead_father")
+    @Column(name = "dead_father")
     private boolean deadFather;
 
     @NotNull
@@ -76,11 +77,11 @@ public class Student implements Serializable {
     private String motherName;
 
     @NotNull
-    @Column(name= "godmother")
+    @Column(name = "godmother")
     private boolean godmother;
 
     @NotNull
-    @Column(name= "dead_mother")
+    @Column(name = "dead_mother")
     private boolean deadMother;
 
     @NotNull
@@ -117,4 +118,39 @@ public class Student implements Serializable {
 
     @OneToOne(mappedBy = "student")
     private Scholarity scholarity;
+
+    @Override
+    public String toString() {
+        return "Student{ \n" +
+                "name='" + name + "',\n" +
+                "birthday=" + birthday + ",\n" +
+                "age=" + age + ",\n" +
+                "sexo=" + sexo + ",\n" +
+                "naturality='" + naturality + "',\n" +
+                "fatherName='" + fatherName + "',\n" +
+                "godfather=" + godfather + ",\n" +
+                "deadFather=" + deadFather + ",\n" +
+                "motherName='" + motherName + "',\n" +
+                "godmother=" + godmother + ",\n" +
+                "deadMother=" + deadMother + ",\n" +
+                "phone='" + phone + "',\n" +
+                "messagePhone='" + messagePhone + "',\n" +
+                "startDate=" + startDate + ",\n" +
+                "attendingShift='" + attendingShift + "',\n" +
+                "referralInstitution='" + referralInstitution + "',\n" +
+                "address=" + address + ",\n" +
+                "habitation=" + habitation + ",\n" +
+                "health=" + health + ",\n" +
+                "socialAssistance=" + socialAssistance + ",\n" +
+                "scholarity=" + scholarity + "\n" +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        return this.toString().equals(obj.toString());
+    }
 }

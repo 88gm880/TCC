@@ -20,9 +20,11 @@ import javax.validation.constraints.NotNull;
 @Valid
 @Entity
 @Builder
-@Setter @Getter
+@Setter
+@Getter
 @Table(name = "health")
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class Health {
 
     @Id
@@ -65,4 +67,17 @@ public class Health {
     @JoinColumn(name = "st_id", referencedColumnName = "st_id")
     private Student student;
 
+    @Override
+    public String toString() {
+        return "{" +
+                "physicalIllness=" + physicalIllness + ",\n" +
+                ", physicalObs='" + physicalObs + "',\n" +
+                ", mentalIllness=" + mentalIllness + ",\n" +
+                ", mentalObs='" + mentalObs + "',\n" +
+                ", medicalMonitoring=" + medicalMonitoring + ",\n" +
+                ", medicalObs='" + medicalObs + "',\n" +
+                ", continuousRemedy=" + continuousRemedy + ",\n" +
+                ", remedyObs='" + remedyObs + "'\n" +
+                '}';
+    }
 }

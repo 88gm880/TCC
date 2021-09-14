@@ -20,9 +20,11 @@ import javax.validation.constraints.NotNull;
 @Valid
 @Entity
 @Builder
-@Setter @Getter
+@Setter
+@Getter
 @Table(name = "social_assistence")
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class SocialAssistance {
 
     @Id
@@ -42,21 +44,32 @@ public class SocialAssistance {
     private String cras;
 
     @NotNull
-    @Column(name="bolsa_familia")
+    @Column(name = "bolsa_familia")
     private boolean bolsaFamilia;
 
-    @Column(name="bolsa_familia_obs")
+    @Column(name = "bolsa_familia_obs")
     private String bolsaFamiliaObs;
 
     @NotNull
-    @Column(name="other_assistances")
+    @Column(name = "other_assistances")
     private boolean otherAssistances;
 
-    @Column(name="other_assistances_obs")
+    @Column(name = "other_assistances_obs")
     private String otherAssistancesObs;
 
     @OneToOne
     @JoinColumn(name = "st_id", referencedColumnName = "st_id")
     private Student student;
 
+    @Override
+    public String toString() {
+        return "{" +
+                "nis='" + nis + "',\n" +
+                ", cras='" + cras + "',\n" +
+                ", bolsaFamilia=" + bolsaFamilia + ",\n" +
+                ", bolsaFamiliaObs='" + bolsaFamiliaObs + "',\n" +
+                ", otherAssistances=" + otherAssistances +
+                ", otherAssistancesObs='" + otherAssistancesObs + "'\n" +
+                '}';
+    }
 }

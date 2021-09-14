@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.openjfx.control.enums.ScreensEnum;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
@@ -21,6 +22,9 @@ public class WelcomeController implements Initializable {
     @FXML
     private Button listScreen;
 
+    @Autowired
+    private ListController listController;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -31,6 +35,7 @@ public class WelcomeController implements Initializable {
     }
 
     public void listScreenOnAction(ActionEvent event) {
-        ScreensEnum.setPane(ScreensEnum.list);
+        if (ScreensEnum.setPane(ScreensEnum.list))
+            listController.updateTable();
     }
 }

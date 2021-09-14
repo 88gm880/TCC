@@ -32,7 +32,7 @@ public class MenuController implements Initializable {
     private int lastId = 0;
 
     @Autowired
-    private ListController list;
+    private ListController listController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,7 +44,7 @@ public class MenuController implements Initializable {
 
     public void menuListaOnAction(ActionEvent event) {
         if (ScreensEnum.setPane(ScreensEnum.list))
-            list.updateTable();
+            listController.updateTable();
     }
 
 
