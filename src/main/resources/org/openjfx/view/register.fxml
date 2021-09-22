@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -34,10 +35,14 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="name" prefHeight="25.0" prefWidth="264.0">
+                              <TextField fx:id="name" onKeyTyped="#validate" prefHeight="25.0" prefWidth="264.0">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="notEmpty" />
+                                    <String fx:value="onlyLetters" />
+                                 </styleClass>
                               </TextField>
                            </children>
                         </HBox>
@@ -48,7 +53,7 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <DatePicker fx:id="birthday" onAction="#birthdayOnAction" prefHeight="25.0" prefWidth="107.0">
+                              <DatePicker fx:id="birthday" onAction="#birthdayOnAction" prefHeight="25.0" prefWidth="130.0">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -72,7 +77,7 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="naturality">
+                              <TextField fx:id="naturality" prefHeight="25.0" prefWidth="170.0">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -490,7 +495,7 @@
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </ChoiceBox>
-                              <TextField fx:id="otherResidenceKind" promptText="Outros domicilios" />
+                              <TextField fx:id="otherResidenceKind" disable="true" promptText="Outros domicilios" />
                            </children>
                         </HBox>
                         <HBox prefHeight="60.0" prefWidth="868.0">
@@ -568,7 +573,7 @@
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </ChoiceBox>
-                              <TextField fx:id="otherBuildingType" promptText="Outras edificações" />
+                              <TextField fx:id="otherBuildingType" disable="true" promptText="Outras edificações" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -617,7 +622,7 @@
                                     <Insets right="5.0" />
                                  </HBox.margin>
                               </RadioButton>
-                              <TextField fx:id="physicalObs" prefHeight="25.0" prefWidth="267.0" />
+                              <TextField fx:id="physicalObs" disable="true" prefHeight="25.0" prefWidth="267.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -640,7 +645,7 @@
                                     <Insets right="5.0" />
                                  </HBox.margin>
                               </RadioButton>
-                              <TextField fx:id="mentalObs" prefHeight="25.0" prefWidth="267.0" />
+                              <TextField fx:id="mentalObs" disable="true" prefHeight="25.0" prefWidth="267.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -663,7 +668,7 @@
                                     <Insets right="5.0" />
                                  </HBox.margin>
                               </RadioButton>
-                              <TextField fx:id="medicalObs" prefHeight="25.0" prefWidth="267.0" />
+                              <TextField fx:id="medicalObs" disable="true" prefHeight="25.0" prefWidth="267.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -686,7 +691,7 @@
                                     <Insets right="5.0" />
                                  </HBox.margin>
                               </RadioButton>
-                              <TextField fx:id="remedyObs" prefHeight="25.0" prefWidth="267.0" />
+                              <TextField fx:id="remedyObs" disable="true" prefHeight="25.0" prefWidth="267.0" />
                            </children>
                         </HBox>
                      </children>
@@ -777,7 +782,7 @@
                                     <Insets right="5.0" />
                                  </HBox.margin>
                               </RadioButton>
-                              <TextField fx:id="bolsaFamiliaObs" />
+                              <TextField fx:id="bolsaFamiliaObs" disable="true" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">
@@ -800,7 +805,7 @@
                                     <Insets right="5.0" />
                                  </HBox.margin>
                               </RadioButton>
-                              <TextField fx:id="otherAssistancesObs" />
+                              <TextField fx:id="otherAssistancesObs" disable="true" />
                            </children>
                         </HBox>
                         <Separator prefWidth="200.0" />
@@ -871,7 +876,7 @@
                                     <Insets right="5.0" />
                                  </HBox.margin>
                               </RadioButton>
-                              <TextField fx:id="learningDifficultyObs" prefHeight="25.0" prefWidth="227.0" />
+                              <TextField fx:id="learningDifficultyObs" disable="true" prefHeight="25.0" prefWidth="227.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="868.0">

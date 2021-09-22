@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
@@ -9,14 +8,13 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.control.ListController">
    <children>
-      <HBox alignment="TOP_CENTER" prefHeight="40.0" prefWidth="870.0">
+      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="870.0">
          <children>
-            <TextField fx:id="searchBar" prefHeight="25.0" prefWidth="320.0" promptText="Nome da criança atendida">
+            <TextField fx:id="searchBar" onKeyTyped="#filterList" prefHeight="25.0" prefWidth="400.0" promptText="Nome da criança atendida">
                <HBox.margin>
-                  <Insets right="20.0" />
+                  <Insets />
                </HBox.margin>
             </TextField>
-            <Button defaultButton="true" mnemonicParsing="false" onAction="#filterList" text="Buscar" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="257.0" prefWidth="870.0">

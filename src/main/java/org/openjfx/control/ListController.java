@@ -1,17 +1,16 @@
 package org.openjfx.control;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.openjfx.control.repositories.StudentRepository;
 import org.openjfx.model.entity.Student;
@@ -19,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 @Component
@@ -42,10 +40,10 @@ public class ListController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        configListView();
     }
 
-    public void filterList(ActionEvent event) {
+    public void filterList(KeyEvent event) {
         studentsList.setPredicate(student -> student.getName().toUpperCase().contains(searchBar.getText().toUpperCase()));
     }
 
@@ -59,8 +57,27 @@ public class ListController implements Initializable {
     }
 
     public void updateTable() {
-        studentsList = new FilteredList<Student>(FXCollections.observableList(studentRepository.findAllByOrderByName()));
+        studentsList = new FilteredList<>(FXCollections.observableList(studentRepository.findAllByOrderByName()));
         studentListView.setItems(studentsList);
-        //studentsList.setPredicate(null);
+    }
+
+    private void configListView(){
+        studentListView.setCellFactory(new Callback<ListView<Student>, ListCell<Student>>() {
+            @Override
+            public ListCell<Student> call(ListView<Student> param) {
+                return new ListCell<Student>() {
+
+                    @Override
+                    protected void updateItem(Student item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item == null || empty) {
+                            setText(null);
+                        } else {
+                            setText(item.getName());
+                        }
+                    }
+                };
+            }
+        });
     }
 }

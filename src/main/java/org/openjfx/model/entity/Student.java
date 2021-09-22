@@ -104,7 +104,7 @@ public class Student implements Serializable {
     @Column(name = "referral_institution")
     private String referralInstitution;
 
-    @OneToOne(mappedBy = "student")
+    /*@OneToOne(mappedBy = "student")
     private Address address;
 
     @OneToOne(mappedBy = "student")
@@ -117,7 +117,7 @@ public class Student implements Serializable {
     private SocialAssistance socialAssistance;
 
     @OneToOne(mappedBy = "student")
-    private Scholarity scholarity;
+    private Scholarity scholarity;*/
 
     @Override
     public String toString() {
@@ -138,11 +138,11 @@ public class Student implements Serializable {
                 "startDate=" + startDate + ",\n" +
                 "attendingShift='" + attendingShift + "',\n" +
                 "referralInstitution='" + referralInstitution + "',\n" +
-                "address=" + address + ",\n" +
+                /*"address=" + address + ",\n" +
                 "habitation=" + habitation + ",\n" +
                 "health=" + health + ",\n" +
                 "socialAssistance=" + socialAssistance + ",\n" +
-                "scholarity=" + scholarity + "\n" +
+                "scholarity=" + scholarity + "\n" +*/
                 '}';
     }
 

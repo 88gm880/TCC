@@ -88,7 +88,7 @@ public class LoginController implements Initializable {
         try {
             VBox root = (VBox) ScreensEnum.menu.getNode();
             Stage stage = (Stage) loginBtn.getScene().getWindow();
-            stage.setResizable(true);
+            //stage.setResizable(true);
             stage.setScene(new Scene(root, 870, 590));
             ScreensEnum.setPane(ScreensEnum.welcome);
             ScreensEnum.getRoot().getScene().getStylesheets().add(getClass().getResource("../styles.css").toExternalForm());

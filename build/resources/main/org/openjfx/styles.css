@@ -1,4 +1,5 @@
 .invalid-field{
  -fx-border-color: #FF0000;
  -fx-prompt-text-fill: #FF5555;
+ -fx-focus-color:#FF0000;
 }
