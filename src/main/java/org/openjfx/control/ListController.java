@@ -38,6 +38,9 @@ public class ListController implements Initializable {
     @Autowired
     private StudentRepository studentRepository;
 
+    @Autowired
+    private DocUtils docUtils;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         configListView();
@@ -51,8 +54,8 @@ public class ListController implements Initializable {
     void ListItemClick(MouseEvent event) {
         if (studentListView.getSelectionModel().isEmpty())
             return;
-        studentListView.getSelectionModel().getSelectedItem();
         //Escolher opção ou gerar pdf?
+        docUtils.generateDoc(studentListView.getSelectionModel().getSelectedItem());
         studentListView.getSelectionModel().clearSelection();
     }
 

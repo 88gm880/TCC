@@ -43,6 +43,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 @Component
@@ -86,6 +87,8 @@ public class RegisterController implements Initializable {
             physicalObs, mentalObs, medicalObs, remedyObs,                                          //
             schoolName, learningDifficultyObs, otherReferral, scholarityObs,                        //
             kinName, kinAge, kinship, kinOccupation, kinIncome;                                     //
+
+    private ArrayList<Control> page1 = new ArrayList<>();
 /*
  *  ============================================    FXML Variables End    =============================================
  *  ============================================    Autowired Variables    ============================================
@@ -109,6 +112,8 @@ public class RegisterController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        page1.addAll(Arrays.asList(name, birthday, ageTxt, naturality, fatherName, motherName, addressStreet,
+                addressNumber, addressDistrict, addressComplement, addressReference));
         configureKinTable();
         configureInterfaceChoices();
         physicalHealthRb.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
@@ -143,8 +148,8 @@ public class RegisterController implements Initializable {
 
     @FXML
     public void nextBtnOnAction(ActionEvent event) {
-        if (true) {
-            ScreensEnum.showPopup("Há campos inválidos para completar");
+        if (!validateControls(page1)) {
+            ScreensEnum.showPopup("Há campos inválidos\npara completar");
         }
         else {
             tabPane.getSelectionModel().selectNext();
@@ -261,6 +266,8 @@ public class RegisterController implements Initializable {
     private static void invalidControl(Control field, String errorMessage) {
         if (!field.getStyleClass().contains("invalid-field"))
             field.getStyleClass().add("invalid-field");
+        if(field instanceof TextField)
+            ((TextField)field).setPromptText(errorMessage);
     }
 
     private void validControl(Control field) {
@@ -312,14 +319,23 @@ public class RegisterController implements Initializable {
     }
 
     private boolean validateControls(ArrayList<Control> controls) {
+        boolean allValid = true;
         for (Control control : controls) {
-
-
+            if(validateControl(control))
+                allValid = false;
         }
-        return true;
+        return allValid;
     }
 
     private boolean validateControl(Control control) {
+        if(control instanceof DatePicker)
+            if(birthday.getValue() == null || birthday.getValue().isAfter(LocalDate.now())){
+                invalidControl(control, "");
+                return false;
+            }else{
+                validControl(control);
+                return true;
+            }
         for (String validation : control.getStyleClass()) {
             switch (validation) {
                 case "notEmpty":

@@ -11,6 +11,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.tutego:jrtf:0.7'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     implementation 'org.postgresql:postgresql:42.2.20'
