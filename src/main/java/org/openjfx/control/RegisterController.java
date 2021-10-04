@@ -28,13 +28,13 @@ import org.openjfx.control.repositories.HabitationRepository;
 import org.openjfx.control.repositories.HealthRepository;
 import org.openjfx.control.repositories.ScholarityRepository;
 import org.openjfx.control.repositories.SocialAssistanceRepository;
-import org.openjfx.control.repositories.StudentRepository;
+import org.openjfx.control.repositories.UserRepository;
 import org.openjfx.model.entity.Habitation;
 import org.openjfx.model.entity.Health;
 import org.openjfx.model.entity.Kin;
 import org.openjfx.model.entity.Scholarity;
 import org.openjfx.model.entity.SocialAssistance;
-import org.openjfx.model.entity.Student;
+import org.openjfx.model.entity.User;
 import org.openjfx.model.entity.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -94,7 +94,7 @@ public class RegisterController implements Initializable {
  *  ============================================    Autowired Variables    ============================================
  */
     @Autowired
-    private StudentRepository studentRepository;
+    private UserRepository userRepository;
     @Autowired
     private AddressRepository addressRepository;
     @Autowired
@@ -166,7 +166,7 @@ public class RegisterController implements Initializable {
 
         try {
             //Cria um aluno com os atributos setados
-            final Student student = Student.builder()
+            final User user = User.builder()
                     .name(name.getText())
                     .birthday(birthday.getValue())
                     .age(age)
@@ -192,7 +192,7 @@ public class RegisterController implements Initializable {
                     .district(addressDistrict.getText())
                     .complement(addressComplement.getText())
                     .reference(addressReference.getText())
-                    .student(student)
+                    .user(user)
                     .build();
 
             final Habitation habitation = Habitation.builder()
@@ -205,7 +205,7 @@ public class RegisterController implements Initializable {
                             ? otherBuildingType.getText() : buildingType.getValue())
                     .rooms(rooms.getValue())
                     .bedrooms(bedrooms.getValue())
-                    .student(student)
+                    .user(user)
                     .build();
 
             Health health = Health.builder()
@@ -217,7 +217,7 @@ public class RegisterController implements Initializable {
                     .medicalObs(isSelectedTrue(medicalRb, "Sim:") ? medicalObs.getText() : null)
                     .continuousRemedy(isSelectedTrue(remedyRb, "Sim:"))
                     .remedyObs(isSelectedTrue(remedyRb, "Sim:") ? remedyObs.getText() : null)
-                    .student(student)
+                    .user(user)
                     .build();
 
             SocialAssistance socialAssistance = SocialAssistance.builder()
@@ -227,7 +227,7 @@ public class RegisterController implements Initializable {
                     .bolsaFamiliaObs(isSelectedTrue(bolsaFamiliaRb, "Sim?:") ? bolsaFamiliaObs.getText() : null)
                     .otherAssistances(isSelectedTrue(otherAssistancesRb, "Sim:"))
                     .otherAssistancesObs(isSelectedTrue(otherAssistancesRb, "Sim:") ? otherAssistancesObs.getText() : null)
-                    .student(student)
+                    .user(user)
                     .build();
 
             Scholarity scholarity = Scholarity.builder()
@@ -237,10 +237,10 @@ public class RegisterController implements Initializable {
                     .learningDifficulty(isSelectedTrue(learningDifficultyRb, "Sim:"))
                     .learningDifficultyObs(isSelectedTrue(learningDifficultyRb, "Sim:") ? learningDifficultyObs.getText() : null)
                     .scholarityObs(scholarityObs.getText())
-                    .student(student)
+                    .user(user)
                     .build();
 
-            studentRepository.save(student);
+            userRepository.save(user);
             addressRepository.save(address);
             habitationRepository.save(habitation);
             healthRepository.save(health);

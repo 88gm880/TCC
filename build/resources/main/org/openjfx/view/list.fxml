@@ -10,7 +10,7 @@
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.control.ListController">
    <children>
-      <Label text="Crianças Cadastradas">
+      <Label text="Usuários Cadastrados">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -19,7 +19,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="870.0">
                <children>
-                  <TextField fx:id="searchBar" onKeyTyped="#filterList" prefHeight="25.0" prefWidth="400.0" promptText="Nome da criança atendida">
+                  <TextField fx:id="searchBar" onKeyTyped="#filterList" prefHeight="25.0" prefWidth="400.0" promptText="Nome do usuário">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -28,7 +28,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="257.0" prefWidth="870.0">
                <children>
-                  <ListView fx:id="studentListView" onMouseClicked="#ListItemClick" prefHeight="257.0" prefWidth="400.0" />
+                  <ListView fx:id="userListView" onMouseClicked="#ListItemClick" prefHeight="257.0" prefWidth="400.0" />
                </children>
             </HBox>
          </children>

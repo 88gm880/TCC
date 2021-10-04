@@ -12,8 +12,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import net.rgielen.fxweaver.core.FxmlView;
-import org.openjfx.control.repositories.StudentRepository;
-import org.openjfx.model.entity.Student;
+import org.openjfx.control.enums.ScreensEnum;
+import org.openjfx.control.repositories.UserRepository;
+import org.openjfx.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,18 +26,18 @@ import java.util.ResourceBundle;
 public class ListController implements Initializable {
 
     @FXML
-    private TableView<Student> studentTableView;
+    private TableView<User> userTableView;
 
     @FXML
-    private ListView<Student> studentListView;
+    private ListView<User> userListView;
 
     @FXML
     private TextField searchBar;
 
-    private FilteredList<Student> studentsList;
+    private FilteredList<User> usersList;
 
     @Autowired
-    private StudentRepository studentRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private DocUtils docUtils;
@@ -47,31 +48,32 @@ public class ListController implements Initializable {
     }
 
     public void filterList(KeyEvent event) {
-        studentsList.setPredicate(student -> student.getName().toUpperCase().contains(searchBar.getText().toUpperCase()));
+        usersList.setPredicate(user -> user.getName().toUpperCase().contains(searchBar.getText().toUpperCase()));
     }
 
     @FXML
     void ListItemClick(MouseEvent event) {
-        if (studentListView.getSelectionModel().isEmpty())
+        if (userListView.getSelectionModel().isEmpty())
             return;
         //Escolher opção ou gerar pdf?
-        docUtils.generateDoc(studentListView.getSelectionModel().getSelectedItem());
-        studentListView.getSelectionModel().clearSelection();
+        docUtils.generateDoc(userListView.getSelectionModel().getSelectedItem());
+        ScreensEnum.showPopup((userListView.getSelectionModel().getSelectedItem()).getName());
+        userListView.getSelectionModel().clearSelection();
     }
 
     public void updateTable() {
-        studentsList = new FilteredList<>(FXCollections.observableList(studentRepository.findAllByOrderByName()));
-        studentListView.setItems(studentsList);
+        usersList = new FilteredList<>(FXCollections.observableList(userRepository.findAllByOrderByName()));
+        userListView.setItems(usersList);
     }
 
     private void configListView(){
-        studentListView.setCellFactory(new Callback<ListView<Student>, ListCell<Student>>() {
+        userListView.setCellFactory(new Callback<ListView<User>, ListCell<User>>() {
             @Override
-            public ListCell<Student> call(ListView<Student> param) {
-                return new ListCell<Student>() {
+            public ListCell<User> call(ListView<User> param) {
+                return new ListCell<User>() {
 
                     @Override
-                    protected void updateItem(Student item, boolean empty) {
+                    protected void updateItem(User item, boolean empty) {
                         super.updateItem(item, empty);
                         if (item == null || empty) {
                             setText(null);

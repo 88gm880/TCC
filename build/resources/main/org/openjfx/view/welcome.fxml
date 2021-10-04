@@ -15,7 +15,7 @@
             <Separator orientation="VERTICAL" prefHeight="200.0" />
             <VBox alignment="TOP_CENTER" prefHeight="570.0" prefWidth="259.0">
                <children>
-                  <Label text="Estudantes">
+                  <Label text="Usuários">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -23,19 +23,24 @@
                         <Insets bottom="35.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <VBox alignment="CENTER" prefHeight="368.0" prefWidth="259.0">
+                  <VBox alignment="CENTER" prefHeight="368.0" prefWidth="259.0" spacing="35.0">
                      <children>
-                        <Button fx:id="registerScreen" mnemonicParsing="false" onAction="#registerScreenOnAction" prefHeight="44.0" prefWidth="110.0" text="Cadastro">
+                        <Button fx:id="registerScreen" mnemonicParsing="false" onAction="#registerScreenOnAction" prefHeight="44.0" prefWidth="165.0" text="Cadastro">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="System Bold" size="20.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="35.0" />
+                              <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="listScreen" mnemonicParsing="false" onAction="#listScreenOnAction" prefHeight="44.0" prefWidth="110.0" text="Lista">
+                        <Button fx:id="listScreen" mnemonicParsing="false" onAction="#listScreenOnAction" prefHeight="44.0" prefWidth="165.0" text="Lista">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="listScreen1" layoutX="85.0" layoutY="212.0" mnemonicParsing="false" onAction="#listScreenOnAction" prefHeight="44.0" prefWidth="165.0" text="Desligamento">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
                            </font>
                         </Button>
                      </children>

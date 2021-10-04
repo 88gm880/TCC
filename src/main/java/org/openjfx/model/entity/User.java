@@ -27,21 +27,21 @@ import java.time.LocalDate;
 @Entity
 @Builder
 @Getter @Setter
-@Table(name = "student")
+@Table(name = "\"user\"") //Aspas literais para evitar o erro de palavra reservada do postgresql
 @NoArgsConstructor @AllArgsConstructor
-public class Student implements Serializable {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(
-            name = "st_id",
+            name = "user_id",
             updatable = false
     )
     private Integer id;
 
     @NotNull
     @NotEmpty
-    @Column(name = "st_name")
+    @Column(name = "user_name")
     private String name;
 
     @NotNull
@@ -104,24 +104,24 @@ public class Student implements Serializable {
     @Column(name = "referral_institution")
     private String referralInstitution;
 
-    /*@OneToOne(mappedBy = "student")
+    /*@OneToOne(mappedBy = "user")
     private Address address;
 
-    @OneToOne(mappedBy = "student")
+    @OneToOne(mappedBy = "user")
     private Habitation habitation;
 
-    @OneToOne(mappedBy = "student")
+    @OneToOne(mappedBy = "user")
     private Health health;
 
-    @OneToOne(mappedBy = "student")
+    @OneToOne(mappedBy = "user")
     private SocialAssistance socialAssistance;
 
-    @OneToOne(mappedBy = "student")
+    @OneToOne(mappedBy = "user")
     private Scholarity scholarity;*/
 
     @Override
     public String toString() {
-        return "Student{ \n" +
+        return "User{ \n" +
                 "name='" + name + "',\n" +
                 "birthday=" + birthday + ",\n" +
                 "age=" + age + ",\n" +

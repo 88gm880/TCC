@@ -58,8 +58,8 @@ public class Scholarity {
     private String scholarityObs;
 
     @OneToOne
-    @JoinColumn(name = "st_id", referencedColumnName = "st_id")
-    private Student student;
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private User user;
 
     @Override
     public String toString() {
