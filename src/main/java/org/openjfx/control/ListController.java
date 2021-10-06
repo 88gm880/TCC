@@ -57,7 +57,6 @@ public class ListController implements Initializable {
             return;
         //Escolher opção ou gerar pdf?
         docUtils.generateDoc(userListView.getSelectionModel().getSelectedItem());
-        ScreensEnum.showPopup((userListView.getSelectionModel().getSelectedItem()).getName());
         userListView.getSelectionModel().clearSelection();
     }
 
