@@ -27,7 +27,7 @@ import java.time.LocalDate;
 @Entity
 @Builder
 @Getter @Setter
-@Table(name = "\"user\"") //Aspas literais para evitar o erro de palavra reservada do postgresql
+@Table(name = "users")
 @NoArgsConstructor @AllArgsConstructor
 public class User implements Serializable {
 
@@ -110,20 +110,6 @@ public class User implements Serializable {
     @Column(name = "referral_institution")
     private String referralInstitution;
 
-    /*@OneToOne(mappedBy = "user")
-    private Address address;
-
-    @OneToOne(mappedBy = "user")
-    private Habitation habitation;
-
-    @OneToOne(mappedBy = "user")
-    private Health health;
-
-    @OneToOne(mappedBy = "user")
-    private SocialAssistance socialAssistance;
-
-    @OneToOne(mappedBy = "user")
-    private Scholarity scholarity;*/
 
     @Override
     public String toString() {

@@ -50,9 +50,9 @@ import java.util.ResourceBundle;
 @FxmlView("../view/register.fxml")
 public class RegisterController implements Initializable {
 
-/*
- *  ==============================================    FXML Variables    ===============================================
- */
+    /*
+     *  ==============================================    FXML Variables    ===============================================
+     */
     @FXML
     private TableView<Kin> kinshipTableView;
     @FXML
@@ -89,10 +89,10 @@ public class RegisterController implements Initializable {
             kinName, kinAge, kinship, kinOccupation, kinIncome;                                     //
 
     private ArrayList<Control> page1 = new ArrayList<>();
-/*
- *  ============================================    FXML Variables End    =============================================
- *  ============================================    Autowired Variables    ============================================
- */
+    /*
+     *  ============================================    FXML Variables End    =============================================
+     *  ============================================    Autowired Variables    ============================================
+     */
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -105,9 +105,9 @@ public class RegisterController implements Initializable {
     private SocialAssistanceRepository socialAssistanceRepository;
     @Autowired
     private ScholarityRepository scholarityRepository;
-/*
- *  ==========================================    Autowired Variables End    ==========================================
- */
+    /*
+     *  ==========================================    Autowired Variables End    ==========================================
+     */
     private int age;
 
     @Override
@@ -115,11 +115,11 @@ public class RegisterController implements Initializable {
         page1.addAll(Arrays.asList(name, birthday, ageTxt, naturality, fatherName, motherName, addressStreet,
                 addressNumber, addressDistrict, addressComplement, addressReference));
         configureKinTable();
-        configureInterfaceChoices();
+        configPickers();
         physicalHealthRb.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                if(isSelectedTrue(physicalHealthRb, "Sim:"))
+                if (isSelectedTrue(physicalHealthRb, "Sim:"))
                     physicalObs.setDisable(false);
                 else
                     physicalObs.setDisable(true);
@@ -129,7 +129,7 @@ public class RegisterController implements Initializable {
     }
 
     public void validate(KeyEvent event) {
-        validateControl((Control) event.getSource());
+        isValidControl((Control) event.getSource());
     }
 
     @FXML
@@ -148,10 +148,9 @@ public class RegisterController implements Initializable {
 
     @FXML
     public void nextBtnOnAction(ActionEvent event) {
-        if (!validateControls(page1)) {
+        if (!isValidControlList(page1)) {
             ScreensEnum.showPopup("Há campos inválidos\npara completar");
-        }
-        else {
+        } else {
             tabPane.getSelectionModel().selectNext();
         }
     }
@@ -266,8 +265,8 @@ public class RegisterController implements Initializable {
     private static void invalidControl(Control field, String errorMessage) {
         if (!field.getStyleClass().contains("invalid-field"))
             field.getStyleClass().add("invalid-field");
-        if(field instanceof TextField)
-            ((TextField)field).setPromptText(errorMessage);
+        if (field instanceof TextField)
+            ((TextField) field).setPromptText(errorMessage);
     }
 
     private void validControl(Control field) {
@@ -304,7 +303,7 @@ public class RegisterController implements Initializable {
         incomeColumn.setCellValueFactory(new PropertyValueFactory<Kin, Double>("income"));
     }
 
-    private void configureInterfaceChoices() {
+    private void configPickers() {
         rooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
         bedrooms.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 20, 0));
         lgMaritalStatus.getItems().addAll("Solteiro", "Casado", "União estável", "Viúvo");
@@ -318,24 +317,28 @@ public class RegisterController implements Initializable {
         kinScholarity.getItems().addAll("Nenhuma", "Ensino Fundamental", "Ensino Médio", "Ensino Superior", "Pós-graduação");
     }
 
-    private boolean validateControls(ArrayList<Control> controls) {
+    private boolean isValidControlList(ArrayList<Control> controls) {
         boolean allValid = true;
-        for (Control control : controls) {
-            if(validateControl(control))
+        for (Control control : controls)
+            if (!isValidControl(control))
                 allValid = false;
-        }
+
         return allValid;
     }
 
-    private boolean validateControl(Control control) {
-        if(control instanceof DatePicker)
-            if(birthday.getValue() == null || birthday.getValue().isAfter(LocalDate.now())){
-                invalidControl(control, "");
-                return false;
-            }else{
-                validControl(control);
-                return true;
-            }
+    private boolean isValidControl(Control control) {
+        switch (control.getClass().getSimpleName()) {
+            case "DatePicker":
+                if (birthday.getValue() == null || birthday.getValue().isAfter(LocalDate.now())) {
+                    invalidControl(control, "");
+                    return false;
+                } else {
+                    validControl(control);
+                    return true;
+                }
+            case "TextField":
+
+        }
         for (String validation : control.getStyleClass()) {
             switch (validation) {
                 case "notEmpty":

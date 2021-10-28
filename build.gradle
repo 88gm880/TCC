@@ -11,8 +11,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.lowagie:itext-rtf:2.1.7'
-    implementation 'com.tutego:jrtf:0.7'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     implementation 'org.postgresql:postgresql:42.2.20'
