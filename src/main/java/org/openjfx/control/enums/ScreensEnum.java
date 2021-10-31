@@ -7,8 +7,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.Getter;
 import org.openjfx.JavaFxApplication;
-import org.openjfx.control.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.openjfx.control.ListController;
+import org.openjfx.control.LoginController;
+import org.openjfx.control.MenuController;
+import org.openjfx.control.PopupController;
+import org.openjfx.control.RegisterController;
+import org.openjfx.control.WelcomeController;
 
 public enum ScreensEnum {
 

@@ -1,22 +1,19 @@
 package org.openjfx.model.entity;
 
-import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Setter;
 import lombok.Getter;
-import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -109,6 +106,17 @@ public class User implements Serializable {
     @NotNull
     @Column(name = "referral_institution")
     private String referralInstitution;
+
+    @Transient
+    private Address address;
+    @Transient
+    private Habitation habitation;
+    @Transient
+    private Health health;
+    @Transient
+    private Scholarity scholarity;
+    @Transient
+    private SocialAssistance socialAssistance;
 
 
     @Override

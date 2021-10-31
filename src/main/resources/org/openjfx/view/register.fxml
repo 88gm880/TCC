@@ -35,7 +35,7 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="name" onKeyTyped="#validate" prefHeight="25.0" prefWidth="264.0">
+                              <TextField fx:id="name" prefHeight="25.0" prefWidth="264.0">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -77,7 +77,7 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="naturality" onKeyTyped="#validate" prefHeight="25.0" prefWidth="170.0">
+                              <TextField fx:id="naturality" prefHeight="25.0" prefWidth="170.0">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -113,7 +113,7 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="fatherName" onKeyTyped="#validate" prefHeight="25.0" prefWidth="170.0">
+                              <TextField fx:id="fatherName" prefHeight="25.0" prefWidth="170.0">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -141,7 +141,7 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="motherName" onKeyTyped="#validate" prefHeight="25.0" prefWidth="170.0">
+                              <TextField fx:id="motherName" prefHeight="25.0" prefWidth="170.0">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -182,7 +182,7 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="addressStreet" onKeyTyped="#validate" prefHeight="25.0" prefWidth="320.0" styleClass="notEmpty">
+                              <TextField fx:id="addressStreet" prefHeight="25.0" prefWidth="320.0" styleClass="notEmpty">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -192,7 +192,7 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="addressNumber" onKeyTyped="#validate" prefHeight="25.0" prefWidth="50.0" styleClass="notEmpty">
+                              <TextField fx:id="addressNumber" prefHeight="25.0" prefWidth="50.0" styleClass="notEmpty">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -206,7 +206,7 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="addressDistrict" onKeyTyped="#validate" prefHeight="25.0" prefWidth="285.0" styleClass="notEmpty">
+                              <TextField fx:id="addressDistrict" prefHeight="25.0" prefWidth="285.0" styleClass="notEmpty">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -226,7 +226,7 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="addressReference" onKeyTyped="#validate" prefHeight="25.0" prefWidth="238.0" styleClass="notEmpty">
+                              <TextField fx:id="addressReference" prefHeight="25.0" prefWidth="238.0" styleClass="notEmpty">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -240,7 +240,7 @@
                                     <Insets left="10.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="phone" onKeyTyped="#validate" prefHeight="25.0" prefWidth="110.0">
+                              <TextField fx:id="phone" prefHeight="25.0" prefWidth="110.0">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>

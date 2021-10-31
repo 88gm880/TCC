@@ -12,7 +12,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import net.rgielen.fxweaver.core.FxmlView;
-import org.openjfx.control.enums.ScreensEnum;
 import org.openjfx.control.repositories.UserRepository;
 import org.openjfx.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
