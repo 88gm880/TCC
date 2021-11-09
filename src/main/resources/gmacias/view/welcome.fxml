@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" prefHeight="570.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.control.WelcomeController">
+   <children>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="870.0">
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox alignment="TOP_CENTER" prefHeight="570.0" prefWidth="260.0">
+               <children>
+                  <Label text="Usuários">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="35.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox alignment="CENTER" prefHeight="368.0" prefWidth="260.0" spacing="35.0">
+                     <children>
+                        <Button fx:id="registerScreen" mnemonicParsing="false" onAction="#registerScreenOnAction" prefHeight="44.0" prefWidth="165.0" text="Cadastra">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="listScreen" mnemonicParsing="false" onAction="#listScreenOnAction" prefHeight="44.0" prefWidth="165.0" text="Visualizar">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="shutdown" layoutX="85.0" layoutY="212.0" mnemonicParsing="false" onAction="#listScreenOnAction" prefHeight="44.0" prefWidth="165.0" text="Desligar">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox alignment="TOP_CENTER" prefHeight="570.0" prefWidth="260.0">
+               <children>
+                  <Label text="Atividades">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="35.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox alignment="CENTER" prefHeight="368.0" prefWidth="260.0" spacing="35.0">
+                     <children>
+                        <Button fx:id="newActivity" mnemonicParsing="false" onAction="#newActivityOnAction" prefHeight="44.0" prefWidth="165.0" text="Criar">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="165.0" text="Lista">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

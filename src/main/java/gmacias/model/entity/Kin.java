@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 @Component
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
@@ -24,5 +27,9 @@ public class Kin {
     private String occupation;
 
     private Double income;
+
+    /*@OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private User user;*/
 
 }

@@ -117,21 +117,13 @@ public class RegisterController implements Initializable {
                 addressNumber, addressDistrict, addressComplement, addressReference));
         configureKinTable();
         configPickers();
-        physicalHealthRb.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                if (registerUtils.isSelectedTrue(physicalHealthRb, "Sim:"))
-                    physicalObs.setDisable(false);
-                else
-                    physicalObs.setDisable(true);
-            }
-        });
+        configToggles();
 
     }
 
     @FXML
     public void birthdayOnAction(ActionEvent event) {
-        if(!registerUtils.isValidControl(birthday)) {
+        if (!registerUtils.isValidControl(birthday)) {
             birthday.getEditor().clear();
             ageTxt.clear();
             return;
@@ -146,7 +138,7 @@ public class RegisterController implements Initializable {
             return;
         }
         validControl(birthday);*/
-        
+
     }
 
     @FXML
@@ -176,7 +168,7 @@ public class RegisterController implements Initializable {
             socialAssistanceRepository.save(user.getSocialAssistance());
             ScreensEnum.showPopup("Cadastro completo!");
         } catch (CreateUserException e) {
-            ScreensEnum.showPopup(e.getMessage()+"Houve um problema para\n completar o registro!");
+            ScreensEnum.showPopup(e.getMessage() + "Houve um problema para\n completar o registro!");
         }
     }
 
@@ -306,5 +298,24 @@ public class RegisterController implements Initializable {
         user.setSocialAssistance(socialAssistance);
 
         return user;
+    }
+
+    private void configToggles() {
+        configToggle(physicalHealthRb, physicalObs);
+        configToggle(mentalHealthRb, mentalObs);
+        configToggle(remedyRb, remedyObs);
+        configToggle(medicalRb, medicalObs);
+    }
+
+    private void configToggle(ToggleGroup group, TextField textField) {
+        group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                if (registerUtils.isSelectedTrue(group, "Sim:"))
+                    textField.setDisable(false);
+                else
+                    textField.setDisable(true);
+            }
+        });
     }
 }

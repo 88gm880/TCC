@@ -7,14 +7,21 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class DocUtils {
 
+    Map <String, String> map = new HashMap<>();
+
     public void generateDoc(User user){
+
         final String pdfTemplate = "C:/Users/gumco/Desktop/Casa/template.rtf";
         final String pdfOut = "C:/Users/gumco/Desktop/Casa/out.rtf";
         String line;
+
 
         try
         {
@@ -26,7 +33,7 @@ public class DocUtils {
             while ((line = br.readLine()) != null)
             {
                 if(line.contains("$st_name"))
-                    line = line.replace("$st_name", user.getName());
+                    line = line.replace("$%fst_name%", user.getName());
                 writer.append(line);
             }
             writer.close();
@@ -34,6 +41,17 @@ public class DocUtils {
         catch (java.io.IOException ex) {
 
         }
+    }
+
+    private void initMap(User user) {
+        map.put("stName", user.getName());
+        map.put("birthday", "");
+        map.put("age", "");
+        map.put("naturality", "");
+        map.put("fatherName", "");
+        map.put("motherName", "");
+        map.put("startDate", "");
+
     }
 
 }
