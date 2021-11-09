@@ -1,4 +1,4 @@
-package org.openjfx.control.enums;
+package gmacias.control.enums;
 
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -6,13 +6,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.Getter;
-import org.openjfx.JavaFxApplication;
-import org.openjfx.control.ListController;
-import org.openjfx.control.LoginController;
-import org.openjfx.control.MenuController;
-import org.openjfx.control.PopupController;
-import org.openjfx.control.RegisterController;
-import org.openjfx.control.WelcomeController;
+import gmacias.JavaFxApplication;
+import gmacias.control.ListController;
+import gmacias.control.LoginController;
+import gmacias.control.MenuController;
+import gmacias.control.PopupController;
+import gmacias.control.RegisterController;
+import gmacias.control.WelcomeController;
 
 public enum ScreensEnum {
 

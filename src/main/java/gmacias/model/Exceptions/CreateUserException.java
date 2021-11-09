@@ -1,4 +1,4 @@
-package org.openjfx.model.Exceptions;
+package gmacias.model.Exceptions;
 
 public class CreateUserException extends Exception {
 

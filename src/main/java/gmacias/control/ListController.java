@@ -1,4 +1,4 @@
-package org.openjfx.control;
+package gmacias.control;
 
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
@@ -12,8 +12,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import net.rgielen.fxweaver.core.FxmlView;
-import org.openjfx.control.repositories.UserRepository;
-import org.openjfx.model.entity.User;
+import gmacias.control.repositories.UserRepository;
+import gmacias.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

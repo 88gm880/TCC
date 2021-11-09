@@ -1,11 +1,11 @@
-package org.openjfx.control;
+package gmacias.control;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import net.rgielen.fxweaver.core.FxmlView;
-import org.openjfx.control.enums.ScreensEnum;
+import gmacias.control.enums.ScreensEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -16,11 +16,8 @@ import java.util.ResourceBundle;
 @FxmlView("../view/welcome.fxml")
 public class WelcomeController implements Initializable {
 
-    @FXML
-    private Button registerScreen;
-
-    @FXML
-    private Button listScreen;
+    @FXML // User buttons
+    private Button registerScreen, listScreen, shutdownScreen;
 
     @Autowired
     private ListController listController;
@@ -37,5 +34,10 @@ public class WelcomeController implements Initializable {
     public void listScreenOnAction(ActionEvent event) {
         if (ScreensEnum.setPane(ScreensEnum.list))
             listController.updateTable();
+    }
+
+    @FXML
+    void shutdownScreenOnAction(ActionEvent event) {
+
     }
 }

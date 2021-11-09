@@ -1,4 +1,4 @@
-package org.openjfx;
+package gmacias;
 
 import javafx.application.Application;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

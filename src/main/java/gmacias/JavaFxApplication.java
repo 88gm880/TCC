@@ -1,4 +1,4 @@
-package org.openjfx;
+package gmacias;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import net.rgielen.fxweaver.core.FxWeaver;
-import org.openjfx.control.enums.ScreensEnum;
+import gmacias.control.enums.ScreensEnum;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
@@ -30,7 +30,7 @@ public class JavaFxApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        File logo2File = new File(getClass().getClassLoader().getResource("org/openjfx/images/logo1.png").getFile());
+        File logo2File = new File(getClass().getClassLoader().getResource("gmacias/images/logo1.png").getFile());
         Parent root = (Parent) ScreensEnum.login.getNode();
         primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.getIcons().add(new Image(logo2File.toURI().toString()));

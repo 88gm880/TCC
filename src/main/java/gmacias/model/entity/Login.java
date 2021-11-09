@@ -1,4 +1,4 @@
-package org.openjfx.model.entity;
+package gmacias.model.entity;
 
 import lombok.NoArgsConstructor;
 import lombok.Setter;

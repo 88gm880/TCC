@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="root" prefHeight="570.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.control.WelcomeController">
+<VBox fx:id="root" prefHeight="570.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gmacias.control.WelcomeController">
    <children>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="870.0">
          <children>
@@ -38,7 +38,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="shutdown" layoutX="85.0" layoutY="212.0" mnemonicParsing="false" onAction="#listScreenOnAction" prefHeight="44.0" prefWidth="165.0" text="Desligar">
+                        <Button fx:id="shutdownScreen" layoutX="85.0" layoutY="212.0" mnemonicParsing="false" onAction="#shutdownScreenOnAction" prefHeight="44.0" prefWidth="165.0" text="Desligar">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
@@ -60,7 +60,7 @@
                   </Label>
                   <VBox alignment="CENTER" prefHeight="368.0" prefWidth="260.0" spacing="35.0">
                      <children>
-                        <Button fx:id="newActivity" mnemonicParsing="false" onAction="#newActivityOnAction" prefHeight="44.0" prefWidth="165.0" text="Criar">
+                        <Button fx:id="newActivity" mnemonicParsing="false" prefHeight="44.0" prefWidth="165.0" text="Criar">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>

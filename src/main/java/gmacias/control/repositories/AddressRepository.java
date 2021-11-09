@@ -1,6 +1,6 @@
-package org.openjfx.control.repositories;
+package gmacias.control.repositories;
 
-import org.openjfx.model.entity.Address;
+import gmacias.model.entity.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

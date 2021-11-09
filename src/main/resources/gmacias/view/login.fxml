@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="365.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.control.LoginController">
+<VBox alignment="TOP_CENTER" prefHeight="365.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gmacias.control.LoginController">
    <children>
       <ImageView fx:id="loginLogoImg" fitHeight="180.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url( &quot;..\..\images\logo2.png&quot;);">
          <image>

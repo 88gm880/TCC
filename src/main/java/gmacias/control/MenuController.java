@@ -1,4 +1,4 @@
-package org.openjfx.control;
+package gmacias.control;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +7,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
 import net.rgielen.fxweaver.core.FxmlView;
-import org.openjfx.control.enums.ScreensEnum;
+import gmacias.control.enums.ScreensEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

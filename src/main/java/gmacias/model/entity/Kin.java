@@ -1,13 +1,10 @@
-package org.openjfx.model.entity;
+package gmacias.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
-
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Component
 @Getter @Setter

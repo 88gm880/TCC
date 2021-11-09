@@ -1,6 +1,6 @@
-package org.openjfx.control.repositories;
+package gmacias.control.repositories;
 
-import org.openjfx.model.entity.Login;
+import gmacias.model.entity.Login;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

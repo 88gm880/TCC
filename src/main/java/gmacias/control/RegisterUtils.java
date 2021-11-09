@@ -1,4 +1,4 @@
-package org.openjfx.control;
+package gmacias.control;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;

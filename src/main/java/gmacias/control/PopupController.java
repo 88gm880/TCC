@@ -1,4 +1,4 @@
-package org.openjfx.control;
+package gmacias.control;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
