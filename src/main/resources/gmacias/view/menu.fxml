@@ -10,13 +10,27 @@
    <children>
       <MenuBar fx:id="menuBar">
         <menus>
+            <Menu mnemonicParsing="false" text="Inicio">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#menuInicioOnAction" text="Inicio" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Usuários">
             <items>
               <MenuItem fx:id="menuCadastrar" mnemonicParsing="false" onAction="#menuCadastrarOnAction" text="Cadastrar" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="menuLista" mnemonicParsing="false" onAction="#menuListaOnAction" text="Lista" />
+                  <MenuItem fx:id="menuLista" mnemonicParsing="false" onAction="#menuListaOnAction" text="Visualizar" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuDesligarOnAction" text="Desligar" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Atividades">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#menuAtividadeOnAction" text="Criar" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuListaAtividadeOnAction" text="Listar" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
    </children>

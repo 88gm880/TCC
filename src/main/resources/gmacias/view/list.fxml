@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
@@ -36,6 +37,11 @@
                   <ListView fx:id="userListView" onMouseClicked="#ListItemClick" prefHeight="257.0" prefWidth="460.0" />
                </children>
             </HBox>
+            <CheckBox fx:id="shuttedUsers" mnemonicParsing="false" onAction="#shuttedUsersOnAction" text="Mostrar os usuários desligados">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </CheckBox>
          </children>
       </VBox>
    </children>

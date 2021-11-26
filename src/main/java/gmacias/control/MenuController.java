@@ -31,6 +31,8 @@ public class MenuController implements Initializable {
 
     @Autowired
     private ListController listController;
+    @Autowired
+    private NewActivityController newActivityController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -45,5 +47,21 @@ public class MenuController implements Initializable {
             listController.updateTable();
     }
 
+    public void menuInicioOnAction(ActionEvent event){
+        ScreensEnum.setPane(ScreensEnum.welcome);
+    }
+
+    public void menuListaAtividadeOnAction(ActionEvent event) {
+
+    }
+
+    public void menuDesligarOnAction(ActionEvent event) {
+        ScreensEnum.setPane(ScreensEnum.shutdown);
+    }
+
+    public void menuAtividadeOnAction(ActionEvent event) {
+        if (ScreensEnum.setPane(ScreensEnum.newActivity))
+            newActivityController.updateTable();
+    }
 
 }

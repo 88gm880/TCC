@@ -60,7 +60,7 @@
                   </Label>
                   <VBox alignment="CENTER" prefHeight="368.0" prefWidth="260.0" spacing="35.0">
                      <children>
-                        <Button fx:id="newActivity" mnemonicParsing="false" prefHeight="44.0" prefWidth="165.0" text="Criar">
+                        <Button mnemonicParsing="false" onAction="#newActivityOnAction" prefHeight="44.0" prefWidth="165.0" text="Criar">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>

@@ -22,6 +22,9 @@ public class WelcomeController implements Initializable {
     @Autowired
     private ListController listController;
 
+    @Autowired
+    private NewActivityController newActivityController;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -36,8 +39,12 @@ public class WelcomeController implements Initializable {
             listController.updateTable();
     }
 
-    @FXML
-    void shutdownScreenOnAction(ActionEvent event) {
+    public void shutdownScreenOnAction(ActionEvent event) {
+        ScreensEnum.setPane(ScreensEnum.shutdown);
+    }
 
+    public void newActivityOnAction(ActionEvent event) {
+        if (ScreensEnum.setPane(ScreensEnum.newActivity))
+            newActivityController.updateTable();
     }
 }

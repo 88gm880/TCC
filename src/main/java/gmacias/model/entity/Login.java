@@ -34,4 +34,8 @@ public class Login {
     @NotNull
     @Column(name = "login_pwd")
     private String loginPassword;
+
+    @NotNull
+    @Column(name = "login_type")
+    private String loginType;
 }

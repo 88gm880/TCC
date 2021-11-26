@@ -1,5 +1,6 @@
 package gmacias.control.enums;
 
+import gmacias.control.*;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -7,21 +8,18 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.Getter;
 import gmacias.JavaFxApplication;
-import gmacias.control.ListController;
-import gmacias.control.LoginController;
-import gmacias.control.MenuController;
-import gmacias.control.PopupController;
-import gmacias.control.RegisterController;
-import gmacias.control.WelcomeController;
 
 public enum ScreensEnum {
 
-    login(0, LoginController.class),        //
-    welcome(1, WelcomeController.class),    //
-    register(2, RegisterController.class),  //
-    list(3, ListController.class),          //
-    menu(4, MenuController.class),          //
-    popup(5, PopupController.class)         //
+    login(0, LoginController.class),                //
+    welcome(1, WelcomeController.class),            //
+    register(2, RegisterController.class),          //
+    list(3, ListController.class),                  //
+    menu(4, MenuController.class),                  //
+    popup(5, PopupController.class),                //
+    shutdown(6, ShutdownController.class),          //
+    userInfo(7, UserInfoController.class),          //
+    newActivity(8, NewActivityController.class)     //
     ;
 
     private ScreensEnum(int id, Class controller) {

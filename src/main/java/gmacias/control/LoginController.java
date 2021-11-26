@@ -1,5 +1,6 @@
 package gmacias.control;
 
+import gmacias.model.entity.Login;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -52,6 +53,7 @@ public class LoginController implements Initializable {
         /*Login login = new Login();
         login.setLoginUser("gmacias");
         login.setLoginPassword("admin");
+        login.setLoginType("admin");
         loginRepository.save(login);*/
     }
 

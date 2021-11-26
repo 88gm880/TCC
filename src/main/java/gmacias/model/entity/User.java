@@ -6,19 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Valid
 @Entity
@@ -26,20 +21,14 @@ import java.time.LocalDate;
 @Getter @Setter
 @Table(name = "users")
 @NoArgsConstructor @AllArgsConstructor
-public class User implements Serializable {
+public class User {
 
     @Id
-    @SequenceGenerator(
-            name = "user_seq",
-            sequenceName = "user_seq",
-            allocationSize = 1)
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "user_seq")
     @Column(
             name = "user_id",
             updatable = false
     )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
@@ -107,15 +96,25 @@ public class User implements Serializable {
     @Column(name = "referral_institution")
     private String referralInstitution;
 
+    @NotNull
+    @Column(name = "user_status")
+    private boolean status;
+
     @Transient
+    private boolean selected = false;
+
+    @ManyToMany(mappedBy = "activityUsers")
+    private List<Activity> activities = new ArrayList<>();
+
+    @OneToOne(mappedBy = "user")
     private Address address;
-    @Transient
+    @OneToOne(mappedBy = "user")
     private Habitation habitation;
-    @Transient
+    @OneToOne(mappedBy = "user")
     private Health health;
-    @Transient
+    @OneToOne(mappedBy = "user")
     private Scholarity scholarity;
-    @Transient
+    @OneToOne(mappedBy = "user")
     private SocialAssistance socialAssistance;
 
 

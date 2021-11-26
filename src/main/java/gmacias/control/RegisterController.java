@@ -160,12 +160,23 @@ public class RegisterController implements Initializable {
 
         try {
             User user = createUser();
+            Address address = user.getAddress();
+            user.setAddress(null);
+            Habitation habitation  = user.getHabitation();
+            user.setHabitation(null);
+            Health health = user.getHealth();
+            user.setHealth(null);
+            Scholarity scholarity = user.getScholarity();
+            user.setScholarity(null);
+            SocialAssistance socialAssistance = user.getSocialAssistance();
+            user.setSocialAssistance(null);
+
             userRepository.save(user);
-            addressRepository.save(user.getAddress());
-            habitationRepository.save(user.getHabitation());
-            healthRepository.save(user.getHealth());
-            scholarityRepository.save(user.getScholarity());
-            socialAssistanceRepository.save(user.getSocialAssistance());
+            addressRepository.save(address);
+            habitationRepository.save(habitation);
+            healthRepository.save(health);
+            scholarityRepository.save(scholarity);
+            socialAssistanceRepository.save(socialAssistance);
             ScreensEnum.showPopup("Cadastro completo!");
         } catch (CreateUserException e) {
             ScreensEnum.showPopup(e.getMessage() + "Houve um problema para\n completar o registro!");
@@ -235,6 +246,7 @@ public class RegisterController implements Initializable {
                 .attendingShift(registerUtils.getSelectedValue(attendingShiftRb))
                 .referralInstitution(referralInstitution.getValue().equals("Outros:")
                         ? otherReferral.getText() : referralInstitution.getValue())
+                .status(true)
                 .build();
 
         final Address address = Address.builder()
