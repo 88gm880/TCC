@@ -33,4 +33,4 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-mainClassName = 'org.openjfx.AppStarter'
+mainClassName = 'gmacias.AppStarter'
